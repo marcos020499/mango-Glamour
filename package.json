@@ -14,7 +14,7 @@
   "scripts": {
     "serve": "live-server dist/",
     "deploy": "gh-pages -d dist",
-    "build": "webpack --mode production",
+    "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js",
     "predeploy": "npm run build",
     "dev-server": "webpack serve --config webpack/dev.config.js",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json"
