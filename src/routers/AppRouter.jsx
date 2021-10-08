@@ -1,5 +1,5 @@
 import { Basket } from 'components/basket';
-import {Navigation } from 'components/common';
+import Navigation  from 'components/common/Navigation';
 import Footer from 'components/common/Footer/index'
 import * as ROUTES from 'constants/routes';
 import { createBrowserHistory } from 'history';
@@ -15,8 +15,7 @@ import PublicRoute from './PublicRoute';
 
 
 const AppRouter = () => (
-  <HashRouter>
-    <>
+  <HashRouter history={history}>
       <Navigation />
       <Basket />
       <Switch>
@@ -109,7 +108,6 @@ const AppRouter = () => (
         <PublicRoute component={view.PageNotFound} />
       </Switch>
       <Footer/>
-    </>
   </HashRouter>
 );
 
