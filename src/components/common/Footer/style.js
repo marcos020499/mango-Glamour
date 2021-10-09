@@ -16,7 +16,8 @@ export const Section = styled.div`
 `;
 export const Titles = styled.h2`
   color: black;
-  font-size: 3vw;
+  font-size: 30px;
+  text-align: center;
   @media screen and (max-width: 768px) {
     font-size: 6vw;
     display: flex;
@@ -25,32 +26,26 @@ export const Titles = styled.h2`
 `;
 export const H3 = styled.h3`
   color: black;
-  font-size: 1.8vw;
-  @media screen and (max-width: 768px) {
-    font-size: 4vw;
-    display: flex;
-    justify-content: center;
-  }
+  text-align: center;
+  font-size: 18px;
 `;
 export const P = styled.p`
   color: black;
-  font-size: 1.6vw;
-  @media screen and (max-width: 768px) {
-    font-size: 4vw;
-    display: flex;
-    justify-content: center;
-    text-align: justify;
-  }
+  line-height: 30px;
+  letter-spacing: 0.5px;
+  font-weight: 100;
+  text-align: center;
+  font-size: 17px;
 `;
 export const Image = styled.li`
-  margin: 0 5vw 0 0;
+  margin: 0 2vw 0 2vw;
   color: black;
   &:hover {
     color: rgb(45, 2, 113);
   }
 `;
 export const A = styled(Link)`
-  font-size: 2.4vw;
+  font-size: 22px;
   @media screen and (max-width: 768px) {
     font-size: 6vw;
     justify-content: space-between;
@@ -60,7 +55,7 @@ export const Right = styled.h4`
   font-size: 2vw;
   display: flex;
   justify-content: center;
-  color: #ccff00;
+  color:gold;
   @media screen and (max-width: 768px) {
     font-size: 4vw;
     text-align: center;
@@ -68,6 +63,9 @@ export const Right = styled.h4`
   }
 `;
 export const ImageContainer = styled.div`
+display: flex;
+margin: auto;
+justify-content: center;
   @media screen and (max-width: 768px) {
     display: flex;
     justify-content: space-between;

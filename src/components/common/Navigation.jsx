@@ -2,7 +2,7 @@
 import { FilterOutlined, ShoppingOutlined } from '@ant-design/icons';
 import * as ROUTE from 'constants/routes';
 import logo from 'images/logo-full.png';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
   Link, NavLink, useLocation
@@ -14,7 +14,7 @@ import Badge from './Badge';
 import FiltersToggle from './FiltersToggle';
 import MobileNavigation from './MobileNavigation';
 import SearchBar from './SearchBar';
-
+import Header from './header768/Header'
 const Navigation = () => {
   const navbar = useRef(null);
   const { pathname } = useLocation();
@@ -67,7 +67,24 @@ const Navigation = () => {
       />
     );
   }
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    function handleResize() {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [width]);
+
+  useEffect(() => {
+    width < 768 && handleSideNavToggle();
+  }, [width]);
+  function handleSideNavToggle() {
+    console.log("toggle it");
+  }
   return (
+    width > 768 ? (
     <nav className="navigation" ref={navbar}>
         <Link onClick={onClickLink} to="/"><Logo alt="Logo" src={"https://res.cloudinary.com/marcos020499/image/upload/v1628720611/MANGO_GLAMOUR_sdfave.png"} /></Link>
       <ul className="navigation-menu-main">
@@ -132,6 +149,9 @@ const Navigation = () => {
         )}
       </ul>
     </nav>
+    ):(
+      <Header store={store} basketDisabledpathnames={basketDisabledpathnames} pathname={pathname} Badge={Badge} ShoppingOutlined={ShoppingOutlined}/>
+    )
   );
 };
 const Logo = styled.img`

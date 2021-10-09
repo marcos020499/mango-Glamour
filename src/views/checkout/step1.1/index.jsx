@@ -4,26 +4,36 @@ import { CHECKOUT_STEP_2 } from 'constants/routes';
 import { displayMoney } from 'helpers/utils';
 import { useDocumentTitle, useScrollTop } from 'hooks';
 import PropType from 'prop-types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { StepTracker } from '../components';
 import withCheckout from '../hoc/withCheckout';
+import StripeCheckout from 'react-stripe-checkout';
+import {firebase} from '../../../services/firebase'
 
 const OrderSummary = ({ basket, subtotal }) => {
-  useDocumentTitle('Check Out Step 1 | Salinaka');
+  useDocumentTitle('Check Out Step 1 | Mango Glamour');
   useScrollTop();
   const dispatch = useDispatch();
   const history = useHistory();
   const onClickPrevious = () => history.push('/');
   const onClickNext = () => history.push(CHECKOUT_STEP_2);
+  const priceForStripe = subtotal * 100;
+  const publishableKey = "pk_live_51JNOllHIeXAWLdU8gva4bRhxOcGKmbtJlk9MrvtbSu1MIkOnNhKpymESaijN7925BVd5Kq5FffkvMY6j8lkew4TT00K9OunEpE";
 
+  // Create a new checkout session in the subollection inside this users document
+  // Wait for the CheckoutSession to get attached by the extension
+  const onToken = ()=>{
+  firebase.checkoutSessionRef()
+  }
+  
   return (
     <div className="checkout">
       <StepTracker current={1} />
       <div className="checkout-step-1">
-        <h3 className="text-center">Order Summary</h3>
-        <span className="d-block text-center">Review items in your basket.</span>
+        <h3 className="text-center">Resumen del pedido</h3>
+        <span className="d-block text-center">Revisar productos en tu canasta</span>
         <br />
         <div className="checkout-items">
           {basket.map((product) => (
@@ -49,17 +59,23 @@ const OrderSummary = ({ basket, subtotal }) => {
           >
             <ShopOutlined />
             &nbsp;
-            Continue Shopping
+            Continuar comprando
           </button>
-          <button
-            className="button"
-            onClick={onClickNext}
-            type="submit"
-          >
-            Next Step
+          <StripeCheckout
+           label='Paga ahora'
+           name='Mango Glamour'
+           billingAddress
+           shippingAddress
+           currency="MX"
+           image="https://res.cloudinary.com/marcos020499/image/upload/v1628720611/MANGO_GLAMOUR_sdfave.png"
+           description={`Your total is $${subtotal}`}
+           amount={priceForStripe}
+           panelLabel='Pagar ahora'
+           token={onToken}
+           stripeKey={publishableKey}
+        />
             &nbsp;
             <ArrowRightOutlined />
-          </button>
         </div>
       </div>
     </div>

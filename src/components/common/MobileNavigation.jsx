@@ -32,7 +32,7 @@ const Navigation = (props) => {
             <button
               className="button-link navigation-menu-link basket-toggle"
               onClick={onClickToggle}
-              disabled={disabledPaths.includes(pathname)}
+             
               type="button"
             >
 

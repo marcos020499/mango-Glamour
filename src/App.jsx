@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     background: blue;
     margin: 0;
     padding: 0;
-    background: linear-gradient(white, rgb(235, 232, 212));
+    background: linear-gradient(whitesmoke, snow);
     font-family: 'Inconsolata', monospace;
     ::-webkit-scrollbar{width:6px; height: 10px;
       border-left:1px;
