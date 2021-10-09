@@ -8,7 +8,6 @@ import {
 import styled from "styled-components";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import bannerImg from 'images/banner-girl.png';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -33,7 +32,7 @@ const Home = () => {
   return (
     <main className="content">
       <div className="home">
-        <div className="banner">
+        <Div className="banner">
           <div className="banner-desc">
             <h1 className="text-thin">
               <strong>Todo</strong>
@@ -59,8 +58,8 @@ const Home = () => {
                 <div>
                     <Image src="https://res.cloudinary.com/marcos020499/image/upload/v1628784608/banner2_s2i1eb.jpg" />
                 </div>
-            </Carousels>
-        </div>
+          </Carousels>
+        </Div>
         <div className="display">
           <div className="display-header">
             <h1>Productos seleccionados</h1>
@@ -101,22 +100,32 @@ const Home = () => {
     </main>
   );
 };
+const Div = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
 const Image = styled.img`
   max-width: 360px;
   min-width: 360px;
   max-height: 310px;
   min-height: 310px;
   @media screen and (max-width: 768px) {
-    max-width: 120px;
-    min-width: 120px;
-    max-height: 120px;
-    min-height: 120px;
+    max-width: 320px;
+    min-width: 320px;
+    max-height: 300px;
+    min-height: 300px;
   }
 `;
 const Carousels = styled(Carousel)`
   width: 35vw;
   padding: 4vw 0 0 0vw;
   height: 20vw;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export default Home;

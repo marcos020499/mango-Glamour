@@ -12,7 +12,6 @@ import UserAvatar from 'views/account/components/UserAvatar';
 import BasketToggle from '../basket/BasketToggle';
 import Badge from './Badge';
 import FiltersToggle from './FiltersToggle';
-import MobileNavigation from './MobileNavigation';
 import SearchBar from './SearchBar';
 import Header from './header768/Header'
 const Navigation = () => {
@@ -57,16 +56,7 @@ const Navigation = () => {
 
   if (store.user && store.user.role === 'ADMIN') {
     return null;
-  } if (window.screen.width <= 800) {
-    return (
-      <MobileNavigation
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...store}
-        disabledPaths={basketDisabledpathnames}
-        pathname={pathname}
-      />
-    );
-  }
+  } 
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -150,7 +140,7 @@ const Navigation = () => {
       </ul>
     </nav>
     ):(
-      <Header store={store} basketDisabledpathnames={basketDisabledpathnames} pathname={pathname} Badge={Badge} ShoppingOutlined={ShoppingOutlined}/>
+      <Header store={store} onClickLink={onClickLink} basketDisabledpathnames={basketDisabledpathnames} pathname={pathname} Badge={Badge} ShoppingOutlined={ShoppingOutlined}/>
     )
   );
 };

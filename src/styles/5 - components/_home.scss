@@ -1,7 +1,14 @@
 .home {
     width: 100%;
 }
-
+@media screen and (max-width: 768px) {
+    .home{
+        display: flex;
+        flex-direction: column;
+        width: 200%;
+        margin: 0 0 0 -45%;
+    }
+}
 .home-featured {
     margin: 5rem;
     margin-top: 10rem;

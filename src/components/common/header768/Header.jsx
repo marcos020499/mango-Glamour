@@ -8,10 +8,10 @@ import SearchBar from '../SearchBar';
 import UserAvatar from '../../../views/account/components/UserAvatar';
 import BasketToggle from '../../basket/BasketToggle';
 
-const Header = ({store, basketDisabledpathnames, ShoppingOutlined, pathname, Badge}) => {
+const Header = ({store,onClickLink, basketDisabledpathnames, ShoppingOutlined, pathname, Badge}) => {
   const [click, setClick] = useState(false);
-  const handleClick = (e) => setClick(!click)
-  const closeMobileMenu = () => setClick(false);
+  const handleClick = () => setClick(!click);
+
   return (
     <div className="header">
       <div className="logo-nav">
@@ -29,8 +29,8 @@ const Header = ({store, basketDisabledpathnames, ShoppingOutlined, pathname, Bad
         <SearchBar />
         </ul>
       </div>
-      <div className="mobile-menu" onClick={handleClick}>
-      <BasketToggle>
+        <div className='mobile-elements'>
+        <BasketToggle>
             {({ onClickToggle }) => (
               <button
                 className="button-link navigation-menu-link basket-toggle"
@@ -51,15 +51,6 @@ const Header = ({store, basketDisabledpathnames, ShoppingOutlined, pathname, Bad
           </li>
         ) : (
           <li className="navigation-action">
-            {pathname !== ROUTE.SIGNUP && (
-              <Link
-                className="button button-small"
-                onClick={onClickLink}
-                to={ROUTE.SIGNUP}
-              >
-               Registrarse
-              </Link>
-            )}
             {pathname !== ROUTE.SIGNIN && (
               <Link
                 className="button button-small button-muted margin-left-s"
@@ -71,11 +62,13 @@ const Header = ({store, basketDisabledpathnames, ShoppingOutlined, pathname, Bad
             )}
           </li>
         )}
-        {click  ? (
+      <div className="mobile-menu" onClick={handleClick}>
+        {click ? (
           <img src={"https://res.cloudinary.com/marcos020499/image/upload/v1633807803/times-circle-solid_fywisk.svg"} className="menu-icon" />
         ) : (
           <img src="https://res.cloudinary.com/marcos020499/image/upload/v1633807803/bars-solid_deiuyv.svg" className="menu-icon" />
         )}
+      </div>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@
 
     @include mobile {
         height: auto;
+        width: 100%;
         flex-direction: column;
     }
 }

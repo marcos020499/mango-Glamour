@@ -64,10 +64,11 @@
     "workbox-webpack-plugin": "^6.1.5"
   },
   "dependencies": {
-    "3d-react-carousal": "4.0.2",
     "@ant-design/icons": "^4.6.2",
     "@stripe/react-stripe-js": "1.4.1",
     "@stripe/stripe-js": "1.17.0",
+    "3d-react-carousal": "4.0.2",
+    "eslint-plugin-promise": "5.1.0",
     "firebase": "8.9.1",
     "font-awesome": "4.7.0",
     "formik": "^2.2.6",
