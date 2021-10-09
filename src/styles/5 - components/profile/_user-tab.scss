@@ -11,6 +11,11 @@
     margin-top: 6rem;
   }
 }
+@media (max-width: 768px) {
+  .user-tab{
+    width: 100%;
+  }
+}
 
 .user-tab-content {
   padding: $m-size;

@@ -25,21 +25,6 @@ const Navigation = () => {
     isLoading: state.app.loading
   }));
 
-  const scrollHandler = () => {
-    if (navbar.current && window.screen.width > 480) {
-      if (window.pageYOffset >= 70) {
-        navbar.current.classList.add('is-nav-scrolled');
-      } else {
-        navbar.current.classList.remove('is-nav-scrolled');
-      }
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', scrollHandler);
-    return () => window.removeEventListener('scroll', scrollHandler);
-  }, []);
-
   const onClickLink = (e) => {
     if (store.isAuthenticating) e.preventDefault();
   };

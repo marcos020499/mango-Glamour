@@ -14,7 +14,11 @@
     width: 100%;
   }
 }
-
+@media (max-width: 768px) {
+  .basket{
+    width: 100%;
+  }
+}
 .basket-toggle {
   &:hover {
     cursor: pointer;

@@ -293,7 +293,7 @@
 }
 
 .product-modal-image {
-  width: 100%;
+  width: 86%;
   height: 100%;
   object-fit: contain;
 }
@@ -497,7 +497,13 @@
     margin: 0;
   }
 }
-
+@media (max-width: 768px) {
+  .display{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+}
 .display-header {
   display: flex;
   justify-content: space-between;

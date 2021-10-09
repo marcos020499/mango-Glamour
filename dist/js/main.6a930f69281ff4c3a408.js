@@ -44,350 +44,6 @@ BasketToggle.propTypes = {
 
 /***/ }),
 
-/***/ 42563:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "LX": () => (/* reexport */ basket_Basket),
-  "fj": () => (/* reexport */ basket_BasketItem),
-  "Lr": () => (/* reexport */ basket_BasketItemControl),
-  "PK": () => (/* reexport */ BasketToggle/* default */.Z)
-});
-
-// EXTERNAL MODULE: ./src/components/common/index.js + 10 modules
-var common = __webpack_require__(21213);
-// EXTERNAL MODULE: ./src/constants/routes.js
-var routes = __webpack_require__(50409);
-// EXTERNAL MODULE: ./node_modules/firebase/firebase.js
-var firebase = __webpack_require__(23149);
-var firebase_default = /*#__PURE__*/__webpack_require__.n(firebase);
-// EXTERNAL MODULE: ./src/helpers/utils.js
-var utils = __webpack_require__(89722);
-// EXTERNAL MODULE: ./src/hooks/index.js + 9 modules
-var hooks = __webpack_require__(56311);
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(67294);
-// EXTERNAL MODULE: ./node_modules/react-redux/es/index.js + 19 modules
-var es = __webpack_require__(14494);
-// EXTERNAL MODULE: ./node_modules/react-router/esm/react-router.js + 1 modules
-var react_router = __webpack_require__(5977);
-// EXTERNAL MODULE: ./src/redux/actions/basketActions.js
-var basketActions = __webpack_require__(14548);
-;// CONCATENATED MODULE: ./src/components/basket/Basket.jsx
-/* eslint-disable max-len */
-
-
-
-
-
-
-
-
-
-
-
-var Basket = function Basket() {
-  var _useModal = (0,hooks/* useModal */.dd)(),
-      isOpenModal = _useModal.isOpenModal,
-      onOpenModal = _useModal.onOpenModal,
-      onCloseModal = _useModal.onCloseModal;
-
-  var _useSelector = (0,es/* useSelector */.v9)(function (state) {
-    return {
-      basket: state.basket,
-      user: state.auth
-    };
-  }),
-      basket = _useSelector.basket,
-      user = _useSelector.user;
-
-  var history = (0,react_router/* useHistory */.k6)();
-
-  var _useLocation = (0,react_router/* useLocation */.TH)(),
-      pathname = _useLocation.pathname;
-
-  var dispatch = (0,es/* useDispatch */.I0)();
-  var didMount = (0,hooks/* useDidMount */.Hd)();
-  (0,react.useEffect)(function () {
-    if (didMount && (firebase_default()).auth.currentUser && basket.length !== 0) {
-      firebase_default().saveBasketItems(basket, (firebase_default()).auth.currentUser.uid).then(function () {
-        console.log('Item saved to basket');
-      })["catch"](function (e) {
-        console.log(e);
-      });
-    }
-  }, [basket.length]);
-
-  var onCheckOut = function onCheckOut() {
-    if (basket.length !== 0 && user) {
-      document.body.classList.remove('is-basket-open');
-      history.push(routes/* CHECKOUT_STEP_1 */.Fr);
-    } else {
-      onOpenModal();
-    }
-  };
-
-  var onSignInClick = function onSignInClick() {
-    onCloseModal();
-    document.body.classList.remove('basket-open');
-    history.push(routes/* CHECKOUT_STEP_1 */.Fr);
-  };
-
-  var onClearBasket = function onClearBasket() {
-    if (basket.length !== 0) {
-      dispatch((0,basketActions/* clearBasket */.RT)());
-    }
-  };
-
-  return user && user.role === 'ADMIN' ? null : /*#__PURE__*/react.createElement(common/* Boundary */.EW, null, /*#__PURE__*/react.createElement(common/* Modal */.u_, {
-    isOpen: isOpenModal,
-    onRequestClose: onCloseModal
-  }, /*#__PURE__*/react.createElement("p", {
-    className: "text-center"
-  }, "Necesitas iniciar sesion para seguir"), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement("div", {
-    className: "d-flex-center"
-  }, /*#__PURE__*/react.createElement("button", {
-    className: "button button-border button-border-gray button-small",
-    onClick: onCloseModal,
-    type: "button"
-  }, "Continuar comprando"), "\xA0", /*#__PURE__*/react.createElement("button", {
-    className: "button button-small",
-    onClick: onSignInClick,
-    type: "button"
-  }, "Inicia sesion"))), /*#__PURE__*/react.createElement("div", {
-    className: "basket"
-  }, /*#__PURE__*/react.createElement("div", {
-    className: "basket-list"
-  }, /*#__PURE__*/react.createElement("div", {
-    className: "basket-header"
-  }, /*#__PURE__*/react.createElement("h3", {
-    className: "basket-header-title"
-  }, "Mi canasta \xA0", /*#__PURE__*/react.createElement("span", null, "(", " ".concat(basket.length, " ").concat(basket.length > 1 ? 'items' : 'item'), ")")), /*#__PURE__*/react.createElement(BasketToggle/* default */.Z, null, function (_ref) {
-    var onClickToggle = _ref.onClickToggle;
-    return /*#__PURE__*/react.createElement("span", {
-      className: "basket-toggle button button-border button-border-gray button-small",
-      onClick: onClickToggle,
-      role: "presentation"
-    }, "Cerrar");
-  }), /*#__PURE__*/react.createElement("button", {
-    className: "basket-clear button button-border button-border-gray button-small",
-    disabled: basket.length === 0,
-    onClick: onClearBasket,
-    type: "button"
-  }, /*#__PURE__*/react.createElement("span", null, "Vaciar canasta"))), basket.length <= 0 && /*#__PURE__*/react.createElement("div", {
-    className: "basket-empty"
-  }, /*#__PURE__*/react.createElement("h5", {
-    className: "basket-empty-msg"
-  }, "Tu canasta esta vacia")), basket.map(function (product, i) {
-    return /*#__PURE__*/react.createElement(basket_BasketItem // eslint-disable-next-line react/no-array-index-key
-    , {
-      key: "".concat(product.id, "_").concat(i),
-      product: product,
-      basket: basket,
-      dispatch: dispatch
-    });
-  })), /*#__PURE__*/react.createElement("div", {
-    className: "basket-checkout"
-  }, /*#__PURE__*/react.createElement("div", {
-    className: "basket-total"
-  }, /*#__PURE__*/react.createElement("p", {
-    className: "basket-total-title"
-  }, "Subtotal:"), /*#__PURE__*/react.createElement("h2", {
-    className: "basket-total-amount"
-  }, (0,utils/* displayMoney */.ik)((0,utils/* calculateTotal */.tf)(basket.map(function (product) {
-    return product.price * product.quantity;
-  }))))), /*#__PURE__*/react.createElement("button", {
-    className: "basket-checkout-button button",
-    disabled: basket.length === 0 || pathname === '/checkout',
-    onClick: onCheckOut,
-    type: "button"
-  }, "Verificar"))));
-};
-
-/* harmony default export */ const basket_Basket = (Basket);
-// EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/CloseOutlined.js + 1 modules
-var CloseOutlined = __webpack_require__(54549);
-// EXTERNAL MODULE: ./node_modules/prop-types/index.js
-var prop_types = __webpack_require__(45697);
-var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
-// EXTERNAL MODULE: ./node_modules/react-router-dom/esm/react-router-dom.js
-var react_router_dom = __webpack_require__(73727);
-;// CONCATENATED MODULE: ./src/components/basket/BasketItem.jsx
-
-
-
-
-
-
-
-
-
-
-var BasketItem = function BasketItem(_ref) {
-  var product = _ref.product;
-  var dispatch = (0,es/* useDispatch */.I0)();
-
-  var onRemoveFromBasket = function onRemoveFromBasket() {
-    return dispatch((0,basketActions/* removeFromBasket */.Er)(product.id));
-  };
-
-  return /*#__PURE__*/react.createElement("div", {
-    className: "basket-item"
-  }, /*#__PURE__*/react.createElement(basket_BasketItemControl, {
-    product: product
-  }), /*#__PURE__*/react.createElement("div", {
-    className: "basket-item-wrapper"
-  }, /*#__PURE__*/react.createElement("div", {
-    className: "basket-item-img-wrapper"
-  }, /*#__PURE__*/react.createElement(common/* ImageLoader */.S3, {
-    alt: product.name,
-    className: "basket-item-img",
-    src: product.image
-  })), /*#__PURE__*/react.createElement("div", {
-    className: "basket-item-details"
-  }, /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
-    to: "/product/".concat(product.id),
-    onClick: function onClick() {
-      return document.body.classList.remove('is-basket-open');
-    }
-  }, /*#__PURE__*/react.createElement("h4", {
-    className: "underline basket-item-name"
-  }, product.name)), /*#__PURE__*/react.createElement("div", {
-    className: "basket-item-specs"
-  }, /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("span", {
-    className: "spec-title"
-  }, "Quantity"), /*#__PURE__*/react.createElement("h5", {
-    className: "my-0"
-  }, product.quantity)), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("span", {
-    className: "spec-title"
-  }, "Size"), /*#__PURE__*/react.createElement("h5", {
-    className: "my-0"
-  }, product.selectedSize, ' ')), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("span", {
-    className: "spec-title"
-  }, "Color"), /*#__PURE__*/react.createElement("div", {
-    style: {
-      backgroundColor: product.selectedColor || product.availableColors[0],
-      width: '15px',
-      height: '15px',
-      borderRadius: '50%'
-    }
-  })))), /*#__PURE__*/react.createElement("div", {
-    className: "basket-item-price"
-  }, /*#__PURE__*/react.createElement("h4", {
-    className: "my-0"
-  }, (0,utils/* displayMoney */.ik)(product.price * product.quantity))), /*#__PURE__*/react.createElement("button", {
-    className: "basket-item-remove button button-border button-border-gray button-small",
-    onClick: onRemoveFromBasket,
-    type: "button"
-  }, /*#__PURE__*/react.createElement(CloseOutlined/* default */.Z, null))));
-};
-
-BasketItem.propTypes = {
-  product: prop_types_default().shape({
-    id: (prop_types_default()).string,
-    name: (prop_types_default()).string,
-    brand: (prop_types_default()).string,
-    price: (prop_types_default()).number,
-    quantity: (prop_types_default()).number,
-    maxQuantity: (prop_types_default()).number,
-    description: (prop_types_default()).string,
-    keywords: prop_types_default().arrayOf((prop_types_default()).string),
-    selectedSize: (prop_types_default()).string,
-    selectedColor: (prop_types_default()).string,
-    imageCollection: prop_types_default().arrayOf((prop_types_default()).string),
-    sizes: prop_types_default().arrayOf((prop_types_default()).number),
-    image: (prop_types_default()).string,
-    imageUrl: (prop_types_default()).string,
-    isFeatured: (prop_types_default()).bool,
-    isRecommended: (prop_types_default()).bool,
-    availableColors: prop_types_default().arrayOf((prop_types_default()).string)
-  }).isRequired
-};
-/* harmony default export */ const basket_BasketItem = (BasketItem);
-// EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/PlusOutlined.js + 1 modules
-var PlusOutlined = __webpack_require__(49101);
-// EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/MinusOutlined.js + 1 modules
-var MinusOutlined = __webpack_require__(1058);
-;// CONCATENATED MODULE: ./src/components/basket/BasketItemControl.jsx
-
-
-
-
-
-
-var BasketItemControl = function BasketItemControl(_ref) {
-  var product = _ref.product;
-  var dispatch = (0,es/* useDispatch */.I0)();
-
-  var onAddQty = function onAddQty() {
-    if (product.quantity < product.maxQuantity) {
-      dispatch((0,basketActions/* addQtyItem */.xj)(product.id));
-    }
-  };
-
-  var onMinusQty = function onMinusQty() {
-    if (product.maxQuantity >= product.quantity && product.quantity !== 0) {
-      dispatch((0,basketActions/* minusQtyItem */.Mq)(product.id));
-    }
-  };
-
-  return /*#__PURE__*/react.createElement("div", {
-    className: "basket-item-control"
-  }, /*#__PURE__*/react.createElement("button", {
-    className: "button button-border button-border-gray button-small basket-control basket-control-add",
-    disabled: product.maxQuantity === product.quantity,
-    onClick: onAddQty,
-    type: "button"
-  }, /*#__PURE__*/react.createElement(PlusOutlined/* default */.Z, {
-    style: {
-      fontSize: '9px'
-    }
-  })), /*#__PURE__*/react.createElement("button", {
-    className: "button button-border button-border-gray button-small basket-control basket-control-minus",
-    disabled: product.quantity === 1,
-    onClick: onMinusQty,
-    type: "button"
-  }, /*#__PURE__*/react.createElement(MinusOutlined/* default */.Z, {
-    style: {
-      fontSize: '9px'
-    }
-  })));
-};
-
-BasketItemControl.propTypes = {
-  product: prop_types_default().shape({
-    id: (prop_types_default()).string,
-    name: (prop_types_default()).string,
-    brand: (prop_types_default()).string,
-    price: (prop_types_default()).number,
-    quantity: (prop_types_default()).number,
-    maxQuantity: (prop_types_default()).number,
-    description: (prop_types_default()).string,
-    keywords: prop_types_default().arrayOf((prop_types_default()).string),
-    selectedSize: (prop_types_default()).string,
-    selectedColor: (prop_types_default()).string,
-    imageCollection: prop_types_default().arrayOf((prop_types_default()).string),
-    sizes: prop_types_default().arrayOf((prop_types_default()).number),
-    image: (prop_types_default()).string,
-    imageUrl: (prop_types_default()).string,
-    isFeatured: (prop_types_default()).bool,
-    isRecommended: (prop_types_default()).bool,
-    availableColors: prop_types_default().arrayOf((prop_types_default()).string)
-  }).isRequired
-};
-/* harmony default export */ const basket_BasketItemControl = (BasketItemControl);
-// EXTERNAL MODULE: ./src/components/basket/BasketToggle.jsx
-var BasketToggle = __webpack_require__(26431);
-;// CONCATENATED MODULE: ./src/components/basket/index.js
-
-
-
-
-
-/***/ }),
-
 /***/ 54612:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -995,23 +651,6 @@ var Navigation = function Navigation() {
       isLoading: state.app.loading
     };
   });
-
-  var scrollHandler = function scrollHandler() {
-    if (navbar.current && window.screen.width > 480) {
-      if (window.pageYOffset >= 70) {
-        navbar.current.classList.add('is-nav-scrolled');
-      } else {
-        navbar.current.classList.remove('is-nav-scrolled');
-      }
-    }
-  };
-
-  (0,react.useEffect)(function () {
-    window.addEventListener('scroll', scrollHandler);
-    return function () {
-      return window.removeEventListener('scroll', scrollHandler);
-    };
-  }, []);
 
   var onClickLink = function onClickLink(e) {
     if (store.isAuthenticating) e.preventDefault();
@@ -1753,7 +1392,7 @@ var SearchBar = function SearchBar() {
 
 /***/ }),
 
-/***/ 21213:
+/***/ 55891:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -1772,7 +1411,7 @@ __webpack_require__.d(__webpack_exports__, {
   "JX": () => (/* reexport */ common_SocialLogin)
 });
 
-// UNUSED EXPORTS: Badge, Filters, Footer, MobileNavigation, Navigation, PriceRange
+// UNUSED EXPORTS: Badge, Filters, Footer, Navigation, PriceRange
 
 // EXTERNAL MODULE: ./src/constants/routes.js
 var routes = __webpack_require__(50409);
@@ -2089,90 +1728,10 @@ MessageDisplay.propTypes = {
   action: (prop_types_default()).func
 };
 /* harmony default export */ const common_MessageDisplay = (MessageDisplay);
-// EXTERNAL MODULE: ./src/components/basket/index.js + 3 modules
-var basket = __webpack_require__(42563);
-// EXTERNAL MODULE: ./node_modules/react-router/esm/react-router.js + 1 modules
-var react_router = __webpack_require__(5977);
-// EXTERNAL MODULE: ./src/components/common/SearchBar.jsx
-var SearchBar = __webpack_require__(46769);
-;// CONCATENATED MODULE: ./src/components/common/MobileNavigation.jsx
-
-
-
-
-
-
-
-
-
-
-var Navigation = function Navigation(props) {
-  var isAuthenticating = props.isAuthenticating,
-      basketLength = props.basketLength,
-      disabledPaths = props.disabledPaths,
-      user = props.user;
-
-  var _useLocation = (0,react_router/* useLocation */.TH)(),
-      pathname = _useLocation.pathname;
-
-  var onClickLink = function onClickLink(e) {
-    if (isAuthenticating) e.preventDefault();
-  };
-
-  return /*#__PURE__*/react.createElement("nav", {
-    className: "mobile-navigation"
-  }, /*#__PURE__*/react.createElement("div", {
-    className: "mobile-navigation-main"
-  }, /*#__PURE__*/react.createElement("div", {
-    className: "mobile-navigation-logo"
-  }, /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
-    onClick: onClickLink,
-    to: routes/* HOME */.Sd
-  }, /*#__PURE__*/react.createElement("h2", null, "MANGO GLAMOUR"))), /*#__PURE__*/react.createElement(basket/* BasketToggle */.PK, null, function (_ref) {
-    var onClickToggle = _ref.onClickToggle;
-    return /*#__PURE__*/react.createElement("button", {
-      className: "button-link navigation-menu-link basket-toggle",
-      onClick: onClickToggle,
-      type: "button"
-    }, /*#__PURE__*/react.createElement(Badge/* default */.Z, {
-      count: basketLength
-    }, /*#__PURE__*/react.createElement("i", {
-      className: "fa fa-shopping-bag",
-      style: {
-        fontSize: '2rem'
-      }
-    })));
-  }), /*#__PURE__*/react.createElement("ul", {
-    className: "mobile-navigation-menu"
-  }, user ? /*#__PURE__*/react.createElement("li", {
-    className: "mobile-navigation-item"
-  }, /*#__PURE__*/react.createElement(UserAvatar/* default */.Z, null)) : /*#__PURE__*/react.createElement(react.Fragment, null, pathname !== routes/* SIGNIN */.OT && /*#__PURE__*/react.createElement("li", {
-    className: "mobile-navigation-item"
-  }, /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
-    className: "navigation-menu-link",
-    onClick: onClickLink,
-    to: routes/* SIGNIN */.OT
-  }, "Iniciar sesion"))))), /*#__PURE__*/react.createElement("div", {
-    className: "mobile-navigation-sec"
-  }, /*#__PURE__*/react.createElement(SearchBar/* default */.Z, null), /*#__PURE__*/react.createElement(FiltersToggle/* default */.Z, null, /*#__PURE__*/react.createElement("button", {
-    className: "button-link button-small",
-    type: "button"
-  }, /*#__PURE__*/react.createElement("i", {
-    className: "fa fa-filter"
-  })))));
-};
-
-Navigation.propTypes = {
-  isAuthenticating: (prop_types_default()).bool.isRequired,
-  basketLength: (prop_types_default()).number.isRequired,
-  disabledPaths: prop_types_default().arrayOf((prop_types_default()).string).isRequired,
-  user: prop_types_default().oneOfType([(prop_types_default()).bool, (prop_types_default()).object]).isRequired
-};
-/* harmony default export */ const MobileNavigation = ((/* unused pure expression or super */ null && (Navigation)));
 // EXTERNAL MODULE: ./src/components/common/Modal.jsx
 var Modal = __webpack_require__(71549);
 // EXTERNAL MODULE: ./src/components/common/Navigation.jsx + 1 modules
-var common_Navigation = __webpack_require__(19117);
+var Navigation = __webpack_require__(19117);
 ;// CONCATENATED MODULE: ./static/logo-wordmark.png
 /* harmony default export */ const logo_wordmark = (__webpack_require__.p + "images/logo-wordmark.c9095b79e4c1cb5d9f82799542443b19.png");
 ;// CONCATENATED MODULE: ./src/components/common/Preloader.jsx
@@ -2203,6 +1762,8 @@ var Preloader = function Preloader() {
 /* harmony default export */ const common_Preloader = (Preloader);
 // EXTERNAL MODULE: ./src/components/common/PriceRange/index.jsx + 4 modules
 var PriceRange = __webpack_require__(33196);
+// EXTERNAL MODULE: ./src/components/common/SearchBar.jsx
+var SearchBar = __webpack_require__(46769);
 // EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/FacebookOutlined.js + 1 modules
 var FacebookOutlined = __webpack_require__(79728);
 // EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/GoogleOutlined.js + 1 modules
@@ -2259,7 +1820,6 @@ SocialLogin.propTypes = {
 };
 /* harmony default export */ const common_SocialLogin = (SocialLogin);
 ;// CONCATENATED MODULE: ./src/components/common/index.js
-
 
 
 
@@ -3575,7 +3135,7 @@ var useScrollTop = function useScrollTop() {
 
 /***/ }),
 
-/***/ 61611:
+/***/ 94798:
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 
@@ -3586,8 +3146,8 @@ __webpack_require__.d(AppRouter_namespaceObject, {
   "Z": () => (routers_AppRouter)
 });
 
-// EXTERNAL MODULE: ./src/components/common/index.js + 10 modules
-var common = __webpack_require__(21213);
+// EXTERNAL MODULE: ./src/components/common/index.js + 9 modules
+var common = __webpack_require__(55891);
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__(67294);
 // EXTERNAL MODULE: ./node_modules/react-dom/index.js
@@ -4155,35 +3715,341 @@ var updateProfileSuccess = function updateProfileSuccess(updates) {
     payload: updates
   };
 };
-// EXTERNAL MODULE: ./src/components/basket/index.js + 3 modules
-var components_basket = __webpack_require__(42563);
+// EXTERNAL MODULE: ./node_modules/firebase/firebase.js
+var firebase = __webpack_require__(23149);
+var firebase_default = /*#__PURE__*/__webpack_require__.n(firebase);
+// EXTERNAL MODULE: ./src/helpers/utils.js
+var utils = __webpack_require__(89722);
+// EXTERNAL MODULE: ./src/hooks/index.js + 9 modules
+var hooks = __webpack_require__(56311);
+// EXTERNAL MODULE: ./node_modules/react-redux/es/index.js + 19 modules
+var react_redux_es = __webpack_require__(14494);
+// EXTERNAL MODULE: ./node_modules/react-router/esm/react-router.js + 1 modules
+var react_router = __webpack_require__(5977);
+;// CONCATENATED MODULE: ./src/components/basket/Basket.jsx
+/* eslint-disable max-len */
+
+
+
+
+
+
+
+
+
+
+
+var Basket = function Basket() {
+  var _useModal = (0,hooks/* useModal */.dd)(),
+      isOpenModal = _useModal.isOpenModal,
+      onOpenModal = _useModal.onOpenModal,
+      onCloseModal = _useModal.onCloseModal;
+
+  var _useSelector = (0,react_redux_es/* useSelector */.v9)(function (state) {
+    return {
+      basket: state.basket,
+      user: state.auth
+    };
+  }),
+      basket = _useSelector.basket,
+      user = _useSelector.user;
+
+  var history = (0,react_router/* useHistory */.k6)();
+
+  var _useLocation = (0,react_router/* useLocation */.TH)(),
+      pathname = _useLocation.pathname;
+
+  var dispatch = (0,react_redux_es/* useDispatch */.I0)();
+  var didMount = (0,hooks/* useDidMount */.Hd)();
+  (0,react.useEffect)(function () {
+    if (didMount && (firebase_default()).auth.currentUser && basket.length !== 0) {
+      firebase_default().saveBasketItems(basket, (firebase_default()).auth.currentUser.uid).then(function () {
+        console.log('Item saved to basket');
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
+  }, [basket.length]);
+
+  var onCheckOut = function onCheckOut() {
+    if (basket.length !== 0 && user) {
+      document.body.classList.remove('is-basket-open');
+      history.push(routes/* CHECKOUT_STEP_1 */.Fr);
+    } else {
+      onOpenModal();
+    }
+  };
+
+  var onSignInClick = function onSignInClick() {
+    onCloseModal();
+    document.body.classList.remove('basket-open');
+    history.push(routes/* CHECKOUT_STEP_1 */.Fr);
+  };
+
+  var onClearBasket = function onClearBasket() {
+    if (basket.length !== 0) {
+      dispatch((0,basketActions/* clearBasket */.RT)());
+    }
+  };
+
+  return user && user.role === 'ADMIN' ? null : /*#__PURE__*/react.createElement(common/* Boundary */.EW, null, /*#__PURE__*/react.createElement(common/* Modal */.u_, {
+    isOpen: isOpenModal,
+    onRequestClose: onCloseModal
+  }, /*#__PURE__*/react.createElement("p", {
+    className: "text-center"
+  }, "Necesitas iniciar sesion para seguir"), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement("div", {
+    className: "d-flex-center"
+  }, /*#__PURE__*/react.createElement("button", {
+    className: "button button-border button-border-gray button-small",
+    onClick: onCloseModal,
+    type: "button"
+  }, "Continuar comprando"), "\xA0", /*#__PURE__*/react.createElement("button", {
+    className: "button button-small",
+    onClick: onSignInClick,
+    type: "button"
+  }, "Inicia sesion"))), /*#__PURE__*/react.createElement("div", {
+    className: "basket"
+  }, /*#__PURE__*/react.createElement("div", {
+    className: "basket-list"
+  }, /*#__PURE__*/react.createElement("div", {
+    className: "basket-header"
+  }, /*#__PURE__*/react.createElement("h3", {
+    className: "basket-header-title"
+  }, "Mi canasta \xA0", /*#__PURE__*/react.createElement("span", null, "(", " ".concat(basket.length, " ").concat(basket.length > 1 ? 'items' : 'item'), ")")), /*#__PURE__*/react.createElement(BasketToggle/* default */.Z, null, function (_ref) {
+    var onClickToggle = _ref.onClickToggle;
+    return /*#__PURE__*/react.createElement("span", {
+      className: "basket-toggle button button-border button-border-gray button-small",
+      onClick: onClickToggle,
+      role: "presentation"
+    }, "Cerrar");
+  }), /*#__PURE__*/react.createElement("button", {
+    className: "basket-clear button button-border button-border-gray button-small",
+    disabled: basket.length === 0,
+    onClick: onClearBasket,
+    type: "button"
+  }, /*#__PURE__*/react.createElement("span", null, "Vaciar canasta"))), basket.length <= 0 && /*#__PURE__*/react.createElement("div", {
+    className: "basket-empty"
+  }, /*#__PURE__*/react.createElement("h5", {
+    className: "basket-empty-msg"
+  }, "Tu canasta esta vacia")), basket.map(function (product, i) {
+    return /*#__PURE__*/react.createElement(basket_BasketItem // eslint-disable-next-line react/no-array-index-key
+    , {
+      key: "".concat(product.id, "_").concat(i),
+      product: product,
+      basket: basket,
+      dispatch: dispatch
+    });
+  })), /*#__PURE__*/react.createElement("div", {
+    className: "basket-checkout"
+  }, /*#__PURE__*/react.createElement("div", {
+    className: "basket-total"
+  }, /*#__PURE__*/react.createElement("p", {
+    className: "basket-total-title"
+  }, "Subtotal:"), /*#__PURE__*/react.createElement("h2", {
+    className: "basket-total-amount"
+  }, (0,utils/* displayMoney */.ik)((0,utils/* calculateTotal */.tf)(basket.map(function (product) {
+    return product.price * product.quantity;
+  }))))), /*#__PURE__*/react.createElement("button", {
+    className: "basket-checkout-button button",
+    disabled: basket.length === 0 || pathname === '/checkout',
+    onClick: onCheckOut,
+    type: "button"
+  }, "Verificar"))));
+};
+
+/* harmony default export */ const basket_Basket = (Basket);
+// EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/CloseOutlined.js + 1 modules
+var CloseOutlined = __webpack_require__(54549);
+// EXTERNAL MODULE: ./node_modules/prop-types/index.js
+var prop_types = __webpack_require__(45697);
+var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
+// EXTERNAL MODULE: ./node_modules/react-router-dom/esm/react-router-dom.js
+var react_router_dom = __webpack_require__(73727);
+;// CONCATENATED MODULE: ./src/components/basket/BasketItem.jsx
+
+
+
+
+
+
+
+
+
+
+var BasketItem = function BasketItem(_ref) {
+  var product = _ref.product;
+  var dispatch = (0,react_redux_es/* useDispatch */.I0)();
+
+  var onRemoveFromBasket = function onRemoveFromBasket() {
+    return dispatch((0,basketActions/* removeFromBasket */.Er)(product.id));
+  };
+
+  return /*#__PURE__*/react.createElement("div", {
+    className: "basket-item"
+  }, /*#__PURE__*/react.createElement(basket_BasketItemControl, {
+    product: product
+  }), /*#__PURE__*/react.createElement("div", {
+    className: "basket-item-wrapper"
+  }, /*#__PURE__*/react.createElement("div", {
+    className: "basket-item-img-wrapper"
+  }, /*#__PURE__*/react.createElement(common/* ImageLoader */.S3, {
+    alt: product.name,
+    className: "basket-item-img",
+    src: product.image
+  })), /*#__PURE__*/react.createElement("div", {
+    className: "basket-item-details"
+  }, /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
+    to: "/product/".concat(product.id),
+    onClick: function onClick() {
+      return document.body.classList.remove('is-basket-open');
+    }
+  }, /*#__PURE__*/react.createElement("h4", {
+    className: "underline basket-item-name"
+  }, product.name)), /*#__PURE__*/react.createElement("div", {
+    className: "basket-item-specs"
+  }, /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("span", {
+    className: "spec-title"
+  }, "Quantity"), /*#__PURE__*/react.createElement("h5", {
+    className: "my-0"
+  }, product.quantity)), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("span", {
+    className: "spec-title"
+  }, "Size"), /*#__PURE__*/react.createElement("h5", {
+    className: "my-0"
+  }, product.selectedSize, ' ')), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("span", {
+    className: "spec-title"
+  }, "Color"), /*#__PURE__*/react.createElement("div", {
+    style: {
+      backgroundColor: product.selectedColor || product.availableColors[0],
+      width: '15px',
+      height: '15px',
+      borderRadius: '50%'
+    }
+  })))), /*#__PURE__*/react.createElement("div", {
+    className: "basket-item-price"
+  }, /*#__PURE__*/react.createElement("h4", {
+    className: "my-0"
+  }, (0,utils/* displayMoney */.ik)(product.price * product.quantity))), /*#__PURE__*/react.createElement("button", {
+    className: "basket-item-remove button button-border button-border-gray button-small",
+    onClick: onRemoveFromBasket,
+    type: "button"
+  }, /*#__PURE__*/react.createElement(CloseOutlined/* default */.Z, null))));
+};
+
+BasketItem.propTypes = {
+  product: prop_types_default().shape({
+    id: (prop_types_default()).string,
+    name: (prop_types_default()).string,
+    brand: (prop_types_default()).string,
+    price: (prop_types_default()).number,
+    quantity: (prop_types_default()).number,
+    maxQuantity: (prop_types_default()).number,
+    description: (prop_types_default()).string,
+    keywords: prop_types_default().arrayOf((prop_types_default()).string),
+    selectedSize: (prop_types_default()).string,
+    selectedColor: (prop_types_default()).string,
+    imageCollection: prop_types_default().arrayOf((prop_types_default()).string),
+    sizes: prop_types_default().arrayOf((prop_types_default()).number),
+    image: (prop_types_default()).string,
+    imageUrl: (prop_types_default()).string,
+    isFeatured: (prop_types_default()).bool,
+    isRecommended: (prop_types_default()).bool,
+    availableColors: prop_types_default().arrayOf((prop_types_default()).string)
+  }).isRequired
+};
+/* harmony default export */ const basket_BasketItem = (BasketItem);
+// EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/PlusOutlined.js + 1 modules
+var PlusOutlined = __webpack_require__(49101);
+// EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/MinusOutlined.js + 1 modules
+var MinusOutlined = __webpack_require__(1058);
+;// CONCATENATED MODULE: ./src/components/basket/BasketItemControl.jsx
+
+
+
+
+
+
+var BasketItemControl = function BasketItemControl(_ref) {
+  var product = _ref.product;
+  var dispatch = (0,react_redux_es/* useDispatch */.I0)();
+
+  var onAddQty = function onAddQty() {
+    if (product.quantity < product.maxQuantity) {
+      dispatch((0,basketActions/* addQtyItem */.xj)(product.id));
+    }
+  };
+
+  var onMinusQty = function onMinusQty() {
+    if (product.maxQuantity >= product.quantity && product.quantity !== 0) {
+      dispatch((0,basketActions/* minusQtyItem */.Mq)(product.id));
+    }
+  };
+
+  return /*#__PURE__*/react.createElement("div", {
+    className: "basket-item-control"
+  }, /*#__PURE__*/react.createElement("button", {
+    className: "button button-border button-border-gray button-small basket-control basket-control-add",
+    disabled: product.maxQuantity === product.quantity,
+    onClick: onAddQty,
+    type: "button"
+  }, /*#__PURE__*/react.createElement(PlusOutlined/* default */.Z, {
+    style: {
+      fontSize: '9px'
+    }
+  })), /*#__PURE__*/react.createElement("button", {
+    className: "button button-border button-border-gray button-small basket-control basket-control-minus",
+    disabled: product.quantity === 1,
+    onClick: onMinusQty,
+    type: "button"
+  }, /*#__PURE__*/react.createElement(MinusOutlined/* default */.Z, {
+    style: {
+      fontSize: '9px'
+    }
+  })));
+};
+
+BasketItemControl.propTypes = {
+  product: prop_types_default().shape({
+    id: (prop_types_default()).string,
+    name: (prop_types_default()).string,
+    brand: (prop_types_default()).string,
+    price: (prop_types_default()).number,
+    quantity: (prop_types_default()).number,
+    maxQuantity: (prop_types_default()).number,
+    description: (prop_types_default()).string,
+    keywords: prop_types_default().arrayOf((prop_types_default()).string),
+    selectedSize: (prop_types_default()).string,
+    selectedColor: (prop_types_default()).string,
+    imageCollection: prop_types_default().arrayOf((prop_types_default()).string),
+    sizes: prop_types_default().arrayOf((prop_types_default()).number),
+    image: (prop_types_default()).string,
+    imageUrl: (prop_types_default()).string,
+    isFeatured: (prop_types_default()).bool,
+    isRecommended: (prop_types_default()).bool,
+    availableColors: prop_types_default().arrayOf((prop_types_default()).string)
+  }).isRequired
+};
+/* harmony default export */ const basket_BasketItemControl = (BasketItemControl);
+// EXTERNAL MODULE: ./src/components/basket/BasketToggle.jsx
+var BasketToggle = __webpack_require__(26431);
+;// CONCATENATED MODULE: ./src/components/basket/index.js
+
+
+
+
 // EXTERNAL MODULE: ./src/components/common/Navigation.jsx + 1 modules
 var Navigation = __webpack_require__(19117);
 // EXTERNAL MODULE: ./src/components/common/Footer/index.js + 1 modules
 var Footer = __webpack_require__(25522);
-// EXTERNAL MODULE: ./node_modules/react-router-dom/esm/react-router-dom.js
-var react_router_dom = __webpack_require__(73727);
-// EXTERNAL MODULE: ./node_modules/react-router/esm/react-router.js + 1 modules
-var react_router = __webpack_require__(5977);
 // EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/LoadingOutlined.js + 1 modules
 var LoadingOutlined = __webpack_require__(7085);
 // EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/EditOutlined.js + 1 modules
 var EditOutlined = __webpack_require__(8212);
 // EXTERNAL MODULE: ./node_modules/formik/dist/formik.esm.js + 121 modules
 var formik_esm = __webpack_require__(12541);
-// EXTERNAL MODULE: ./src/hooks/index.js + 9 modules
-var hooks = __webpack_require__(56311);
-// EXTERNAL MODULE: ./node_modules/react-redux/es/index.js + 19 modules
-var react_redux_es = __webpack_require__(14494);
 // EXTERNAL MODULE: ./node_modules/yup/es/index.js + 25 modules
 var yup_es = __webpack_require__(19501);
 // EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/CheckOutlined.js + 1 modules
 var CheckOutlined = __webpack_require__(79508);
-// EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/CloseOutlined.js + 1 modules
-var CloseOutlined = __webpack_require__(54549);
-// EXTERNAL MODULE: ./node_modules/prop-types/index.js
-var prop_types = __webpack_require__(45697);
-var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
 ;// CONCATENATED MODULE: ./src/views/account/edit_account/ConfirmModal.jsx
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || ConfirmModal_unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -4974,8 +4840,6 @@ ProductFeatured.propTypes = {
   }).isRequired
 };
 /* harmony default export */ const product_ProductFeatured = (ProductFeatured);
-// EXTERNAL MODULE: ./src/helpers/utils.js
-var utils = __webpack_require__(89722);
 ;// CONCATENATED MODULE: ./src/components/product/ProductItem.jsx
 function ProductItem_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
@@ -5487,8 +5351,6 @@ ProductItem_ProductItem.propTypes = {
 /* harmony default export */ const components_ProductItem = ((0,react_router/* withRouter */.EN)(ProductItem_ProductItem));
 // EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/FilterOutlined.js + 1 modules
 var FilterOutlined = __webpack_require__(17405);
-// EXTERNAL MODULE: ./node_modules/@ant-design/icons/es/icons/PlusOutlined.js + 1 modules
-var PlusOutlined = __webpack_require__(49101);
 ;// CONCATENATED MODULE: ./src/views/admin/components/ProductsNavbar.jsx
 
 
@@ -6116,7 +5978,7 @@ var OrderSummary = function OrderSummary(_ref) {
   }, "Review items in your basket."), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement("div", {
     className: "checkout-items"
   }, basket.map(function (product) {
-    return /*#__PURE__*/react.createElement(components_basket/* BasketItem */.fj, {
+    return /*#__PURE__*/react.createElement(basket_BasketItem, {
       basket: basket,
       dispatch: dispatch,
       key: product.id,
@@ -7270,7 +7132,7 @@ var ViewProduct = function ViewProduct() {
 
 /* harmony default export */ const view_product = (ViewProduct);
 // EXTERNAL MODULE: ./src/services/firebase.js + 1 modules
-var firebase = __webpack_require__(73879);
+var services_firebase = __webpack_require__(73879);
 ;// CONCATENATED MODULE: ./src/views/Contact/style.js
 var style_templateObject, style_templateObject2, style_templateObject3, _templateObject4, _templateObject5;
 
@@ -7338,7 +7200,7 @@ function Contact() {
 
   var onSubmit = function onSubmit(e) {
     e.preventDefault();
-    var response = firebase.firebase.firestore().collection("contact").add({
+    var response = services_firebase.firebase.firestore().collection("contact").add({
       name: name,
       email: email,
       phone: phone,
@@ -7630,7 +7492,7 @@ var PublicRoute_mapStateToProps = function mapStateToProps(_ref3) {
 var AppRouter = function AppRouter() {
   return /*#__PURE__*/react.createElement(react_router_dom/* HashRouter */.UT, {
     history: history
-  }, /*#__PURE__*/react.createElement(Navigation/* default */.Z, null), /*#__PURE__*/react.createElement(components_basket/* Basket */.LX, null), /*#__PURE__*/react.createElement(react_router/* Switch */.rs, null, /*#__PURE__*/react.createElement(react_router/* Route */.AW, {
+  }, /*#__PURE__*/react.createElement(Navigation/* default */.Z, null), /*#__PURE__*/react.createElement(basket_Basket, null), /*#__PURE__*/react.createElement(react_router/* Switch */.rs, null, /*#__PURE__*/react.createElement(react_router/* Route */.AW, {
     component: search,
     exact: true,
     path: routes/* SEARCH */.mo
@@ -7848,7 +7710,7 @@ function authSaga(_ref) {
 
         case 7:
           _context3.next = 9;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.signIn */.Z.signIn, payload.email, payload.password);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.signIn */.Z.signIn, payload.email, payload.password);
 
         case 9:
           _context3.next = 15;
@@ -7870,7 +7732,7 @@ function authSaga(_ref) {
 
         case 19:
           _context3.next = 21;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.signInWithGoogle */.Z.signInWithGoogle);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.signInWithGoogle */.Z.signInWithGoogle);
 
         case 21:
           _context3.next = 27;
@@ -7892,7 +7754,7 @@ function authSaga(_ref) {
 
         case 31:
           _context3.next = 33;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.signInWithFacebook */.Z.signInWithFacebook);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.signInWithFacebook */.Z.signInWithFacebook);
 
         case 33:
           _context3.next = 39;
@@ -7914,7 +7776,7 @@ function authSaga(_ref) {
 
         case 43:
           _context3.next = 45;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.signInWithGithub */.Z.signInWithGithub);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.signInWithGithub */.Z.signInWithGithub);
 
         case 45:
           _context3.next = 51;
@@ -7936,7 +7798,7 @@ function authSaga(_ref) {
 
         case 55:
           _context3.next = 57;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.createAccount */.Z.createAccount, payload.email, payload.password);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.createAccount */.Z.createAccount, payload.email, payload.password);
 
         case 57:
           ref = _context3.sent;
@@ -7957,7 +7819,7 @@ function authSaga(_ref) {
             dateJoined: ref.user.metadata.creationTime || new Date().getTime()
           };
           _context3.next = 62;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.addUser */.Z.addUser, ref.user.uid, user);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.addUser */.Z.addUser, ref.user.uid, user);
 
         case 62:
           _context3.next = 64;
@@ -7987,7 +7849,7 @@ function authSaga(_ref) {
 
         case 76:
           _context3.next = 78;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.signOut */.Z.signOut);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.signOut */.Z.signOut);
 
         case 78:
           _context3.next = 80;
@@ -8036,7 +7898,7 @@ function authSaga(_ref) {
 
         case 101:
           _context3.next = 103;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.passwordReset */.Z.passwordReset, payload);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.passwordReset */.Z.passwordReset, payload);
 
         case 103:
           _context3.next = 105;
@@ -8066,7 +7928,7 @@ function authSaga(_ref) {
 
         case 113:
           _context3.next = 115;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.getUser */.Z.getUser, payload.uid);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.getUser */.Z.getUser, payload.uid);
 
         case 115:
           snapshot = _context3.sent;
@@ -8122,7 +7984,7 @@ function authSaga(_ref) {
             dateJoined: payload.metadata.creationTime
           };
           _context3.next = 132;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.addUser */.Z.addUser, payload.uid, _user2);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.addUser */.Z.addUser, payload.uid, _user2);
 
         case 132:
           _context3.next = 134;
@@ -8166,7 +8028,7 @@ function authSaga(_ref) {
         case 146:
           _context3.prev = 146;
           _context3.next = 149;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.setAuthPersistence */.Z.setAuthPersistence);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.setAuthPersistence */.Z.setAuthPersistence);
 
         case 149:
           _context3.next = 154;
@@ -8320,7 +8182,7 @@ function productSaga(_ref) {
         case 9:
           state = _context4.sent;
           _context4.next = 12;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.getProducts */.Z.getProducts, payload);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.getProducts */.Z.getProducts, payload);
 
         case 12:
           result = _context4.sent;
@@ -8372,12 +8234,12 @@ function productSaga(_ref) {
         case 34:
           imageCollection = payload.imageCollection;
           _context4.next = 37;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.generateKey */.Z.generateKey);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.generateKey */.Z.generateKey);
 
         case 37:
           key = _context4.sent;
           _context4.next = 40;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.storeImage */.Z.storeImage, key, 'products', payload.image);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.storeImage */.Z.storeImage, key, 'products', payload.image);
 
         case 40:
           downloadURL = _context4.sent;
@@ -8394,14 +8256,14 @@ function productSaga(_ref) {
 
           _context4.next = 46;
           return (0,redux_saga_effects_npm_proxy_esm/* all */.$6)(imageCollection.map(function () {
-            return firebase/* default.generateKey */.Z.generateKey;
+            return services_firebase/* default.generateKey */.Z.generateKey;
           }));
 
         case 46:
           imageKeys = _context4.sent;
           _context4.next = 49;
           return (0,redux_saga_effects_npm_proxy_esm/* all */.$6)(imageCollection.map(function (img, i) {
-            return firebase/* default.storeImage */.Z.storeImage(imageKeys[i](), 'products', img.file);
+            return services_firebase/* default.storeImage */.Z.storeImage(imageKeys[i](), 'products', img.file);
           }));
 
         case 49:
@@ -8419,7 +8281,7 @@ function productSaga(_ref) {
             imageCollection: [image].concat(productSaga_toConsumableArray(images))
           });
           _context4.next = 54;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.addProduct */.Z.addProduct, key, product);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.addProduct */.Z.addProduct, key, product);
 
         case 54:
           _context4.next = 56;
@@ -8468,7 +8330,7 @@ function productSaga(_ref) {
 
           _context4.prev = 75;
           _context4.next = 78;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.deleteImage */.Z.deleteImage, payload.id);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.deleteImage */.Z.deleteImage, payload.id);
 
         case 78:
           _context4.next = 83;
@@ -8481,7 +8343,7 @@ function productSaga(_ref) {
 
         case 83:
           _context4.next = 85;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.storeImage */.Z.storeImage, payload.id, 'products', _image);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.storeImage */.Z.storeImage, payload.id, 'products', _image);
 
         case 85:
           url = _context4.sent;
@@ -8508,14 +8370,14 @@ function productSaga(_ref) {
 
           _context4.next = 93;
           return (0,redux_saga_effects_npm_proxy_esm/* all */.$6)(newUploads.map(function () {
-            return firebase/* default.generateKey */.Z.generateKey;
+            return services_firebase/* default.generateKey */.Z.generateKey;
           }));
 
         case 93:
           _imageKeys = _context4.sent;
           _context4.next = 96;
           return (0,redux_saga_effects_npm_proxy_esm/* all */.$6)(newUploads.map(function (img, i) {
-            return firebase/* default.storeImage */.Z.storeImage(_imageKeys[i](), 'products', img.file);
+            return services_firebase/* default.storeImage */.Z.storeImage(_imageKeys[i](), 'products', img.file);
           }));
 
         case 96:
@@ -8543,7 +8405,7 @@ function productSaga(_ref) {
 
         case 102:
           _context4.next = 104;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.editProduct */.Z.editProduct, payload.id, newUpdates);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.editProduct */.Z.editProduct, payload.id, newUpdates);
 
         case 104:
           _context4.next = 106;
@@ -8584,7 +8446,7 @@ function productSaga(_ref) {
 
         case 122:
           _context4.next = 124;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.removeProduct */.Z.removeProduct, payload);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.removeProduct */.Z.removeProduct, payload);
 
         case 124:
           _context4.next = 126;
@@ -8631,7 +8493,7 @@ function productSaga(_ref) {
         case 146:
           _state = _context4.sent;
           _context4.next = 149;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.searchProducts */.Z.searchProducts, payload.searchKey);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.searchProducts */.Z.searchProducts, payload.searchKey);
 
         case 149:
           _result = _context4.sent;
@@ -8732,7 +8594,7 @@ function profileSaga(_ref) {
 
         case 7:
           _context.next = 9;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.updateEmail */.Z.updateEmail, payload.password, payload.newEmail);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.updateEmail */.Z.updateEmail, payload.password, payload.newEmail);
 
         case 9:
           _context.next = 11;
@@ -8777,7 +8639,7 @@ function profileSaga(_ref) {
           }
 
           _context.next = 32;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.updateEmail */.Z.updateEmail, password, email);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.updateEmail */.Z.updateEmail, password, email);
 
         case 32:
           if (!(avatarFile || bannerFile)) {
@@ -8791,7 +8653,7 @@ function profileSaga(_ref) {
           }
 
           _context.next = 36;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.storeImage */.Z.storeImage, state.auth.id, 'banner', bannerFile);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.storeImage */.Z.storeImage, state.auth.id, 'banner', bannerFile);
 
         case 36:
           _context.t2 = _context.sent;
@@ -8810,7 +8672,7 @@ function profileSaga(_ref) {
           }
 
           _context.next = 44;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.storeImage */.Z.storeImage, state.auth.id, 'avatar', avatarFile);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.storeImage */.Z.storeImage, state.auth.id, 'avatar', avatarFile);
 
         case 44:
           _context.t3 = _context.sent;
@@ -8827,7 +8689,7 @@ function profileSaga(_ref) {
             banner: bannerURL
           });
           _context.next = 52;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.updateProfile */.Z.updateProfile, state.auth.id, updates);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.updateProfile */.Z.updateProfile, state.auth.id, updates);
 
         case 52:
           _context.next = 54;
@@ -8839,7 +8701,7 @@ function profileSaga(_ref) {
 
         case 56:
           _context.next = 58;
-          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(firebase/* default.updateProfile */.Z.updateProfile, state.auth.id, payload.updates);
+          return (0,redux_saga_effects_npm_proxy_esm/* call */.RE)(services_firebase/* default.updateProfile */.Z.updateProfile, state.auth.id, payload.updates);
 
         case 58:
           _context.next = 60;
@@ -9018,7 +8880,7 @@ var _configureStore = store(),
 var root = document.getElementById('app'); // Render the preloader on initial load
 
 (0,react_dom.render)( /*#__PURE__*/react.createElement(common/* Preloader */.p9, null), root);
-firebase/* default.auth.onAuthStateChanged */.Z.auth.onAuthStateChanged(function (user) {
+services_firebase/* default.auth.onAuthStateChanged */.Z.auth.onAuthStateChanged(function (user) {
   if (user) {
     src_store.dispatch((0,authActions/* onAuthStateSuccess */.lg)(user));
   } else {
@@ -9871,7 +9733,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(7085);
 /* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(79508);
-/* harmony import */ var components_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21213);
+/* harmony import */ var components_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(55891);
 /* harmony import */ var components_formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(79895);
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12541);
 /* harmony import */ var hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(56311);
@@ -10324,7 +10186,7 @@ ProductForm.propTypes = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/" + chunkId + "." + {"99":"5615dcb188e983c0516b","404":"3ca45497d53235104b0b","503":"d6de8aae882cf42dc418"}[chunkId] + ".js";
+/******/ 			return "js/" + chunkId + "." + {"99":"a1c16f2d9ceb69f98bf7","404":"3ca45497d53235104b0b","503":"d6de8aae882cf42dc418"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -10520,9 +10382,9 @@ ProductForm.propTypes = {
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, [736,532], () => (__webpack_require__(26981)))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [736,532], () => (__webpack_require__(61611)))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [736,532], () => (__webpack_require__(94798)))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=main.9109b42a3caae6dfb176.js.map
+//# sourceMappingURL=main.6a930f69281ff4c3a408.js.map
