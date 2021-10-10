@@ -11,10 +11,12 @@ import { StepTracker } from '../components';
 import withCheckout from '../hoc/withCheckout';
 import StripeCheckout from 'react-stripe-checkout';
 import {firebase} from '../../../services/firebase'
+import { Field, useFormikContext } from 'formik';
 
 const OrderSummary = ({ basket, subtotal }) => {
   useDocumentTitle('Check Out Step 1 | Mango Glamour');
   useScrollTop();
+  const { values, setValues } = useFormikContext();
   const dispatch = useDispatch();
   const history = useHistory();
   const onClickPrevious = () => history.push('/');
@@ -29,39 +31,27 @@ const OrderSummary = ({ basket, subtotal }) => {
   }
   
   return (
-    <div className="checkout">
-      <StepTracker current={1} />
-      <div className="checkout-step-1">
-        <h3 className="text-center">Resumen del pedido</h3>
-        <span className="d-block text-center">Revisar productos en tu canasta</span>
-        <br />
-        <div className="checkout-items">
-          {basket.map((product) => (
-            <BasketItem
-              basket={basket}
-              dispatch={dispatch}
-              key={product.id}
-              product={product}
-            />
-          ))}
-        </div>
-        <br />
-        <div className="basket-total text-right">
-          <p className="basket-total-title">Subtotal:</p>
-          <h2 className="basket-total-amount">{displayMoney(subtotal)}</h2>
-        </div>
-        <br />
-        <div className="checkout-shipping-action">
-          <button
-            className="button button-muted"
-            onClick={onClickPrevious}
-            type="button"
+    <div className={`checkout-fieldset-collapse ${values.type === 'credit' ? 'is-selected-payment' : ''}`}>
+      <div className="checkout-field margin-0">
+        <div className="checkout-checkbox-field">
+          <input
+            checked={values.type === 'credit'}
+            id="modePayPal"
+            name="type"
+            onChange={(e) => {
+              if (e.target.checked) {
+                setValues({ ...values, type: 'credit' });
+              }
+            }}
+            type="radio"
+          />
+          <label
+            className="d-flex w-100"
+            htmlFor="modePayPal"
           >
-            <ShopOutlined />
-            &nbsp;
-            Continuar comprando
-          </button>
-          <StripeCheckout
+            <div className="d-flex-grow-1 margin-left-s">
+              <h4 className="margin-0">Tarjeta de credito/debito</h4>
+              <StripeCheckout
            label='Paga ahora'
            name='Mango Glamour'
            billingAddress
@@ -74,8 +64,9 @@ const OrderSummary = ({ basket, subtotal }) => {
            token={onToken}
            stripeKey={publishableKey}
         />
-            &nbsp;
-            <ArrowRightOutlined />
+            </div>
+            <div className="payment-img payment-img-paypal" />
+          </label>
         </div>
       </div>
     </div>

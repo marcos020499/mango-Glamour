@@ -4,7 +4,6 @@
   position: relative;
   z-index: map-get($z-index, 'filter');
 }
-
 .filters-field {
   width: 100%;
   margin-bottom: $m-size;
@@ -37,7 +36,13 @@
 .filters-toggle {
   position: relative;
 }
-
+@media (max-width: 768px) {
+  .filters-toggle{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+  }
+}
 .filters-toggle-sub {
   width: 400px;
   height: 360px;
@@ -46,6 +51,11 @@
   padding: $m-size;
 
   @include mobile {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .filters-toggle-sub{
     width: 100%;
   }
 }

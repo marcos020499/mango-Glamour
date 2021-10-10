@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {firebase} from "../../services/firebase";
-import { Title, ContainerContact, Input, Button, InputMessage } from "./style";
+import { Title, ContainerContact, Divbutton, Input, Button, InputMessage } from "./style";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -44,6 +44,7 @@ function Contact() {
           placeholder="Full name*"
           value={name}
           name="name"
+          placeholderTextColor="black"
           onChange={handleOnChangeName}
           required
         />
@@ -73,7 +74,9 @@ function Contact() {
           onChange={handleOnChangeMessage}
           required
         />
-        <Button type="submit">Submit</Button>
+        <Divbutton>
+        <Button type="submit" className='button'>Enviar informacion</Button>
+        </Divbutton>
       </ContainerContact>
     </form>
   );

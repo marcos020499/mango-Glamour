@@ -42,6 +42,13 @@
     width: 300px;
   }
 }
+@media (max-width: 768px) {
+  .searchbar{
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+  }
+}
 
 .navigation-admin {
   height: 6rem;

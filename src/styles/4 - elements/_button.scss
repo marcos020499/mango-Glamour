@@ -1,5 +1,15 @@
 .button {
+  
+  font-size: 1.5vh;
+  font-weight: 1000;
+  cursor: pointer;
+  display: flex;
   background: $button-color;
+  min-width: 80px;
+  height: 30px;
+  font-size: 1.5vh;
+  width: auto;
+  line-height: 30px;
   padding: $m-size;
   border: 1px solid $button-color;
   color: $white;

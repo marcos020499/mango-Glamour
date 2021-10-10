@@ -5,18 +5,22 @@
    
     background: #f3f3f3;
     display: flex;
-
-    @include mobile {
-        height: auto;
-        width: 100%;
-        flex-direction: column;
-    }
     @media (max-width: 768px) {
         width: 100%;
         margin: auto;
       }
 }
-
+@media (max-width: 768px) {
+    .banner{
+        margin-bottom: 20px;
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        h1{
+            font-size: 25px;
+        }
+    }
+}
 .banner-desc {
     display: flex;
     align-items: flex-start;
@@ -44,7 +48,7 @@
     }
     .banner-desc h1{
         width: 100%;
-        font-size: 3.8rem;
+        font-size: 25px;
     }
   }
 
@@ -60,5 +64,12 @@
         height: 100%;
         object-fit: cover;
         transform: translateX(5rem)
+    }
+}
+@media (max-width: 768px) {
+    .banner-img{
+        img{
+            transform: none;
+        }
     }
 }

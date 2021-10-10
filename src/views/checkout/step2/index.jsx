@@ -91,13 +91,13 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
                   >
                     <ArrowLeftOutlined />
                     &nbsp;
-                    Go Back
+                    Regresar
                   </button>
                   <button
                     className="button button-icon"
                     type="submit"
                   >
-                    Next Step
+                    Siguiente
                     &nbsp;
                     <ArrowRightOutlined />
                   </button>

@@ -22,7 +22,7 @@ const BasketItemControl = ({ product }) => {
   return (
     <div className="basket-item-control">
       <button
-        className="button button-border button-border-gray button-small basket-control basket-control-add"
+        className="button-border button-border-gray button-small basket-control basket-control-add"
         disabled={product.maxQuantity === product.quantity}
         onClick={onAddQty}
         type="button"
@@ -30,7 +30,7 @@ const BasketItemControl = ({ product }) => {
         <PlusOutlined style={{ fontSize: '9px' }} />
       </button>
       <button
-        className="button button-border button-border-gray button-small basket-control basket-control-minus"
+        className="button-border button-border-gray button-small basket-control basket-control-minus"
         disabled={product.quantity === 1}
         onClick={onMinusQty}
         type="button"

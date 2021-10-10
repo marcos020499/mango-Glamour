@@ -1,9 +1,11 @@
 import React, { useState, useSelector } from "react";
 import "./header.css";
+import { FilterOutlined } from '@ant-design/icons';
 import * as ROUTE from '../../../constants/routes';
 import {
   Link, NavLink, useLocation
 } from 'react-router-dom';
+import FiltersToggle from '../FiltersToggle';
 import SearchBar from '../SearchBar';
 import UserAvatar from '../../../views/account/components/UserAvatar';
 import BasketToggle from '../../basket/BasketToggle';
@@ -21,12 +23,18 @@ const Header = ({store,onClickLink, basketDisabledpathnames, ShoppingOutlined, p
           </a>
         </div>
         <ul className={click ? "nav-options active" : "nav-options"}>
-        <li><NavLink className="option" exact to={ROUTE.HOME}>Inicio</NavLink></li>
-        <li><NavLink className="option" to={ROUTE.SHOP}>Tienda</NavLink></li>
-        <li><NavLink className="option" to={ROUTE.FEATURED_PRODUCTS}>Destacado</NavLink></li>
-        <li><NavLink className="option" to={ROUTE.RECOMMENDED_PRODUCTS}>Recomendado</NavLink></li>
-        <li><NavLink className="option" to={ROUTE.CONTACT}>Contacto</NavLink></li>
-        <SearchBar />
+        <li><NavLink className="option" exact to={ROUTE.HOME} onClick={handleClick}>Inicio</NavLink></li>
+        <li><NavLink className="option" to={ROUTE.SHOP} onClick={handleClick}>Tienda</NavLink></li>
+        <li><NavLink className="option" to={ROUTE.FEATURED_PRODUCTS} onClick={handleClick}>Destacado</NavLink></li>
+        <li><NavLink className="option" to={ROUTE.RECOMMENDED_PRODUCTS} onClick={handleClick}>Recomendado</NavLink></li>
+        <li><NavLink className="option" to={ROUTE.CONTACT} onClick={handleClick}>Contacto</NavLink></li>
+        <SearchBar handleClick={handleClick} setClick={setClick} click={click}/>
+        <FiltersToggle>
+          <button className="button-muted button-small" type="button">
+            Filtros &nbsp;
+            <FilterOutlined />
+          </button>
+        </FiltersToggle>
         </ul>
       </div>
         <div className='mobile-elements'>

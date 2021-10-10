@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { clearRecentSearch, removeSelectedRecent } from 'redux/actions/filterActions';
 
-const SearchBar = () => {
+const SearchBar = ({handleClick, setClick, click}) => {
   const [searchInput, setSearchInput] = useState('');
   const { filter, isLoading } = useSelector((state) => ({
     filter: state.filter,
@@ -26,6 +26,7 @@ const SearchBar = () => {
     if (e.keyCode === 13) {
       // dispatch(setTextFilter(searchInput));
       e.target.blur();
+      setClick(!click)
       searchbarRef.current.classList.remove('is-open-recent-search');
 
       if (isMobile) {

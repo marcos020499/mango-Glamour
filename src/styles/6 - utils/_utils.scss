@@ -253,7 +253,11 @@
   margin-top: 0;
   margin-bottom: 0;
 }
-
+@media (max-width: 768px) {
+  .my-0{
+    margin-left: 4px;
+  }
+}
 .underline {
   text-decoration: underline;
 }

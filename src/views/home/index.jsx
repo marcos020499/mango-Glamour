@@ -33,7 +33,8 @@ const Home = () => {
     <main className="content">
       <div className="home">
         <Div className="banner">
-          <div className="banner-desc">
+          <Carouselss autoPlay={2500} infiniteLoop={true}>
+                <div className="banner-desc">
             <h1 className="text-thin">
               <strong>Todo</strong>
               &nbsp;
@@ -48,6 +49,27 @@ const Home = () => {
               <ArrowRightOutlined />
             </Link>
           </div>
+                <div>
+                <h1 className="text-thin">
+                  <strong>Tu mejor opción</strong>
+                </h1>
+                    <Image src="https://res.cloudinary.com/marcos020499/image/upload/v1628783010/banner_z04kmu.jpg" />
+                    <Link to={SHOP} className="button">
+              Comprar ahora &nbsp;
+              <ArrowRightOutlined />
+            </Link>
+                </div>
+                <div>
+                <h1 className="text-thin">
+                <strong>No lo piensas más</strong>
+                </h1>
+                    <Image src="https://res.cloudinary.com/marcos020499/image/upload/v1628784608/banner2_s2i1eb.jpg" />
+                    <Link to={SHOP} className="button">
+              Comprar ahora &nbsp;
+              <ArrowRightOutlined />
+            </Link>
+                </div>
+          </Carouselss>
           <Carousels autoPlay={2300} infiniteLoop={true}>
                 <div>
                     <Image src="https://res.cloudinary.com/marcos020499/image/upload/v1628720611/MANGO_GLAMOUR_sdfave.png" />
@@ -125,6 +147,12 @@ const Carousels = styled(Carousel)`
   height: 20vw;
   @media screen and (max-width: 768px) {
     display: none;
+  }
+`;
+const Carouselss = styled(Carousel)`
+  display: none;
+  @media (max-width: 768px) {
+    display: initial;
   }
 `;
 

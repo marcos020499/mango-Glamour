@@ -11,21 +11,8 @@ import withCheckout from '../hoc/withCheckout';
 import CreditPayment from './CreditPayment';
 import PayPalPayment from './PayPalPayment';
 import Total from './Total';
-
+import Step1 from '../step1.1/index'
 const FormSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(4, 'Name should be at least 4 characters.')
-    .required('Name is required'),
-  cardnumber: Yup.string()
-    .min(13, 'Card number should be 13-19 digits long')
-    .max(19, 'Card number should only be 13-19 digits long')
-    .required('Card number is required.'),
-  expiry: Yup.date()
-    .required('Credit card expiry is required.'),
-  ccv: Yup.string()
-    .min(3, 'CCV length should be 3-4 digit')
-    .max(4, 'CCV length should only be 3-4 digit')
-    .required('CCV is required.'),
   type: Yup.string().required('Please select paymend mode')
 });
 
@@ -34,10 +21,6 @@ const Payment = ({ shipping, payment, subtotal }) => {
   useScrollTop();
 
   const initFormikValues = {
-    name: payment.name || '',
-    cardnumber: payment.cardnumber || '',
-    expiry: payment.expiry || '',
-    ccv: payment.ccv || '',
     type: payment.type || 'paypal'
   };
 
@@ -64,7 +47,7 @@ const Payment = ({ shipping, payment, subtotal }) => {
       >
         {() => (
           <Form className="checkout-step-3">
-            <CreditPayment />
+            <Step1 />
             <PayPalPayment />
             <Total
               isInternational={shipping.isInternational}
@@ -81,13 +64,6 @@ Payment.propTypes = {
   shipping: PropType.shape({
     isDone: PropType.bool,
     isInternational: PropType.bool
-  }).isRequired,
-  payment: PropType.shape({
-    name: PropType.string,
-    cardnumber: PropType.string,
-    expiry: PropType.string,
-    ccv: PropType.string,
-    type: PropType.string
   }).isRequired,
   subtotal: PropType.number.isRequired
 };

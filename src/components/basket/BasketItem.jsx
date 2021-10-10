@@ -47,6 +47,9 @@ const BasketItem = ({ product }) => {
                 backgroundColor: product.selectedColor || product.availableColors[0],
                 width: '15px',
                 height: '15px',
+                marginLeft: '8px',
+                position: 'relative',
+                top: '-3px',
                 borderRadius: '50%'
               }}
               />
@@ -57,7 +60,7 @@ const BasketItem = ({ product }) => {
           <h4 className="my-0">{displayMoney(product.price * product.quantity)}</h4>
         </div>
         <button
-          className="basket-item-remove button button-border button-border-gray button-small"
+          className="basket-item-remove button-border button-border-gray button-small"
           onClick={onRemoveFromBasket}
           type="button"
         >

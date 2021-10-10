@@ -8,7 +8,7 @@ export const Title = styled.h1`
   }
 `;
 export const ContainerContact = styled.div`
-  border: 3px solid #572364;
+  border: 3px solid gold;
   margin: 1vw 15vw 1vw 15vw;
   padding: 0vw 3vw 0vw 3vw;
   font-size: 1.8vw;
@@ -22,6 +22,9 @@ export const Input = styled.input`
   font-size: 1.5vw;
   padding: 0.7vw 42vw 0.7vw 2vw;
   border-radius: 5px;
+  :-ms-input-placeholder{
+    color: black;
+  }
   @media screen and (max-width: 768px) {
     font-size: 3vw;
   }
@@ -35,17 +38,27 @@ export const InputMessage = styled.input`
   }
 `;
 export const Button = styled.button`
-  font-size: 2.1vw;
-  background: white;
-  color: gray;
-  padding: 1vw;
-  border: 1px solid black;
+min-width: 80px;
+width: auto;
+height: 30px;
+line-height: 30px;
+font-size: 1.8vh;
+background: black;
+color: white;
+font-weight: 1000;
+border: none;
+cursor: pointer;
+display: flex;
+margin: 15px 0 15px 0;
   &:hover {
     background-color: purple;
     color: white;
   }
-  @media screen and (max-width: 768px) {
-    padding: 1.5vw;
-    font-size: 4vw;
-  }
 `;
+
+export const Divbutton= styled.div`
+  display: flex;
+  flex-direction: none;
+  justify-content: center;
+  margin: auto;
+`

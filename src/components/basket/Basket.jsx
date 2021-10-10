@@ -139,7 +139,7 @@ const Basket = () => {
             onClick={onCheckOut}
             type="button"
           >
-           Verificar
+           Comprar
           </button>
         </div>
       </div>
