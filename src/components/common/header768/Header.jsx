@@ -38,7 +38,7 @@ const Header = ({store,onClickLink, basketDisabledpathnames, ShoppingOutlined, p
         </ul>
       </div>
         <div className='mobile-elements'>
-        <BasketToggle>
+        <BasketToggle >
             {({ onClickToggle }) => (
               <button
                 className="button-link navigation-menu-link basket-toggle"

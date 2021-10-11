@@ -41,7 +41,7 @@ class Handle extends Component {
             }}
           >
             <div className="tooltip">
-              <span className="tooltiptext">
+              <span className="tooltiptext" >
                 Valor:
                 {value}
               </span>

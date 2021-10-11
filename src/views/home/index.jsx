@@ -34,7 +34,52 @@ const Home = () => {
       <div className="home">
         <Div className="banner">
           <Carouselss autoPlay={2500} infiniteLoop={true}>
-                <div className="banner-desc">
+            <div className="banner-desc">
+            <h1 className="text-thin">
+              <strong>Todo</strong>
+              &nbsp;
+              <strong>en un solo lugar</strong>
+            </h1>
+            <p>
+              Somos una tienda online, con increibles descuentos en articulos de belleza, cuidado personal y mucho mas.
+            </p>
+            <br />
+            <ButtonDiv>
+            <Link to={SHOP} className="button">
+              Comprar ahora &nbsp;
+              <ArrowRightOutlined />
+            </Link>
+            </ButtonDiv>
+          </div>
+                <div>
+                <h1 className="text-thin">
+                  <strong>Tu mejor opción</strong>
+                </h1>
+                    <Image src="https://res.cloudinary.com/marcos020499/image/upload/v1628783010/banner_z04kmu.jpg" />
+                    <ButtonDiv>
+              <Link to={SHOP} className="button">
+              Comprar ahora &nbsp;
+              <ArrowRightOutlined />
+            </Link>
+            </ButtonDiv>
+                </div>
+                <div>
+                <h1 className="text-thin">
+                <strong>No lo piensas más</strong>
+                </h1>
+                    <Image src="https://res.cloudinary.com/marcos020499/image/upload/v1628784608/banner2_s2i1eb.jpg" />
+            <ButtonDiv>
+            <Link to={SHOP} className="button">
+              Comprar ahora &nbsp;
+              <ArrowRightOutlined />
+            </Link>
+            </ButtonDiv>
+              </div>
+          </Carouselss>
+          </Div>
+
+          <Divs className="banner">
+          <div className="banner-desc">
             <h1 className="text-thin">
               <strong>Todo</strong>
               &nbsp;
@@ -48,28 +93,7 @@ const Home = () => {
               Comprar ahora &nbsp;
               <ArrowRightOutlined />
             </Link>
-          </div>
-                <div>
-                <h1 className="text-thin">
-                  <strong>Tu mejor opción</strong>
-                </h1>
-                    <Image src="https://res.cloudinary.com/marcos020499/image/upload/v1628783010/banner_z04kmu.jpg" />
-                    <Link to={SHOP} className="button">
-              Comprar ahora &nbsp;
-              <ArrowRightOutlined />
-            </Link>
-                </div>
-                <div>
-                <h1 className="text-thin">
-                <strong>No lo piensas más</strong>
-                </h1>
-                    <Image src="https://res.cloudinary.com/marcos020499/image/upload/v1628784608/banner2_s2i1eb.jpg" />
-                    <Link to={SHOP} className="button">
-              Comprar ahora &nbsp;
-              <ArrowRightOutlined />
-            </Link>
-                </div>
-          </Carouselss>
+            </div>
           <Carousels autoPlay={2300} infiniteLoop={true}>
                 <div>
                     <Image src="https://res.cloudinary.com/marcos020499/image/upload/v1628720611/MANGO_GLAMOUR_sdfave.png" />
@@ -81,8 +105,9 @@ const Home = () => {
                     <Image src="https://res.cloudinary.com/marcos020499/image/upload/v1628784608/banner2_s2i1eb.jpg" />
                 </div>
           </Carousels>
-        </Div>
-        <div className="display">
+
+        </Divs>
+        <div className="display" style={{marginTop: '100px'}}>
           <div className="display-header">
             <h1>Productos seleccionados</h1>
             <Link to={FEATURED_PRODUCTS}>Ver Todos</Link>
@@ -122,12 +147,25 @@ const Home = () => {
     </main>
   );
 };
-const Div = styled.div`
+const Divs = styled.div`
   display: flex;
   flex-direction: row;
+  height: auto;
   @media screen and (max-width: 768px) {
-    flex-direction: column;
+    display: none;
   }
+`;
+const Div = styled.div`
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: flex;
+  flex-direction: column;
+  }
+`;
+const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: auto;
 `;
 const Image = styled.img`
   max-width: 360px;
@@ -135,8 +173,8 @@ const Image = styled.img`
   max-height: 310px;
   min-height: 310px;
   @media screen and (max-width: 768px) {
-    max-width: 320px;
-    min-width: 320px;
+    max-width: 100%;
+    min-width: 100%;
     max-height: 300px;
     min-height: 300px;
   }
@@ -145,15 +183,11 @@ const Carousels = styled(Carousel)`
   width: 35vw;
   padding: 4vw 0 0 0vw;
   height: 20vw;
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
+
 `;
 const Carouselss = styled(Carousel)`
-  display: none;
-  @media (max-width: 768px) {
-    display: initial;
-  }
+  width: 100%;
+  height: 300px;
 `;
 
 export default Home;

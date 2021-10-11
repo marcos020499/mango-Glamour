@@ -93,7 +93,7 @@ const Filters = ({ closeModal }) => {
             onChange={onBrandFilterChange}
           >
             <option value="">Todas las marcas</option>
-            <option value="salt">Vcitoria secret</option>
+            <option value="salt">Victoria secret</option>
             <option value="betsin">Betsin Maalat</option>
             <option value="black">Black Kibal</option>
             <option value="sexbomb">Sexbomb</option>

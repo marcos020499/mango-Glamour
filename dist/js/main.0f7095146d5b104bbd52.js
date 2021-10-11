@@ -727,7 +727,7 @@ var Navigation = function Navigation() {
   }, "Recomendado")), /*#__PURE__*/react.createElement("li", null, /*#__PURE__*/react.createElement(react_router_dom/* NavLink */.OL, {
     activeClassName: "navigation-menu-active",
     to: routes/* CONTACT */.p5
-  }, "Contacto"))), (pathname === routes/* SHOP */.kd || pathname === routes/* SEARCH */.mo) && /*#__PURE__*/react.createElement(FiltersToggle/* default */.Z, null, /*#__PURE__*/react.createElement("button", {
+  }, "Contacto"))), (pathname === routes/* SHOP */.kd || pathname === routes/* HOME */.Sd || pathname === routes/* SEARCH */.mo) && /*#__PURE__*/react.createElement(FiltersToggle/* default */.Z, null, /*#__PURE__*/react.createElement("button", {
     className: "button-muted button-small",
     type: "button"
   }, "Filters \xA0", /*#__PURE__*/react.createElement(FilterOutlined/* default */.Z, null))), /*#__PURE__*/react.createElement(SearchBar/* default */.Z, null), /*#__PURE__*/react.createElement("ul", {
@@ -6805,7 +6805,7 @@ var styled_components_browser_esm = __webpack_require__(33434);
 // EXTERNAL MODULE: ./node_modules/react-responsive-carousel/lib/js/index.js
 var js = __webpack_require__(10615);
 ;// CONCATENATED MODULE: ./src/views/home/index.jsx
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -6850,24 +6850,33 @@ var Home = function Home() {
     className: "banner-desc"
   }, /*#__PURE__*/react.createElement("h1", {
     className: "text-thin"
-  }, /*#__PURE__*/react.createElement("strong", null, "Todo"), "\xA0", /*#__PURE__*/react.createElement("strong", null, "en un solo lugar")), /*#__PURE__*/react.createElement("p", null, "Somos una tienda online, con increibles descuentos en articulos de belleza, cuidado personal y mucho mas."), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
+  }, /*#__PURE__*/react.createElement("strong", null, "Todo"), "\xA0", /*#__PURE__*/react.createElement("strong", null, "en un solo lugar")), /*#__PURE__*/react.createElement("p", null, "Somos una tienda online, con increibles descuentos en articulos de belleza, cuidado personal y mucho mas."), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement(ButtonDiv, null, /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
     to: routes/* SHOP */.kd,
     className: "button"
-  }, "Comprar ahora \xA0", /*#__PURE__*/react.createElement(ArrowRightOutlined/* default */.Z, null))), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("h1", {
+  }, "Comprar ahora \xA0", /*#__PURE__*/react.createElement(ArrowRightOutlined/* default */.Z, null)))), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("h1", {
     className: "text-thin"
   }, /*#__PURE__*/react.createElement("strong", null, "Tu mejor opci\xF3n")), /*#__PURE__*/react.createElement(Image, {
     src: "https://res.cloudinary.com/marcos020499/image/upload/v1628783010/banner_z04kmu.jpg"
-  }), /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
+  }), /*#__PURE__*/react.createElement(ButtonDiv, null, /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
     to: routes/* SHOP */.kd,
     className: "button"
-  }, "Comprar ahora \xA0", /*#__PURE__*/react.createElement(ArrowRightOutlined/* default */.Z, null))), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("h1", {
+  }, "Comprar ahora \xA0", /*#__PURE__*/react.createElement(ArrowRightOutlined/* default */.Z, null)))), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("h1", {
     className: "text-thin"
   }, /*#__PURE__*/react.createElement("strong", null, "No lo piensas m\xE1s")), /*#__PURE__*/react.createElement(Image, {
     src: "https://res.cloudinary.com/marcos020499/image/upload/v1628784608/banner2_s2i1eb.jpg"
-  }), /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
+  }), /*#__PURE__*/react.createElement(ButtonDiv, null, /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
     to: routes/* SHOP */.kd,
     className: "button"
-  }, "Comprar ahora \xA0", /*#__PURE__*/react.createElement(ArrowRightOutlined/* default */.Z, null)))), /*#__PURE__*/react.createElement(Carousels, {
+  }, "Comprar ahora \xA0", /*#__PURE__*/react.createElement(ArrowRightOutlined/* default */.Z, null)))))), /*#__PURE__*/react.createElement(Divs, {
+    className: "banner"
+  }, /*#__PURE__*/react.createElement("div", {
+    className: "banner-desc"
+  }, /*#__PURE__*/react.createElement("h1", {
+    className: "text-thin"
+  }, /*#__PURE__*/react.createElement("strong", null, "Todo"), "\xA0", /*#__PURE__*/react.createElement("strong", null, "en un solo lugar")), /*#__PURE__*/react.createElement("p", null, "Somos una tienda online, con increibles descuentos en articulos de belleza, cuidado personal y mucho mas."), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
+    to: routes/* SHOP */.kd,
+    className: "button"
+  }, "Comprar ahora \xA0", /*#__PURE__*/react.createElement(ArrowRightOutlined/* default */.Z, null))), /*#__PURE__*/react.createElement(Carousels, {
     autoPlay: 2300,
     infiniteLoop: true
   }, /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement(Image, {
@@ -6877,7 +6886,10 @@ var Home = function Home() {
   })), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement(Image, {
     src: "https://res.cloudinary.com/marcos020499/image/upload/v1628784608/banner2_s2i1eb.jpg"
   })))), /*#__PURE__*/react.createElement("div", {
-    className: "display"
+    className: "display",
+    style: {
+      marginTop: '100px'
+    }
   }, /*#__PURE__*/react.createElement("div", {
     className: "display-header"
   }, /*#__PURE__*/react.createElement("h1", null, "Productos seleccionados"), /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
@@ -6905,10 +6917,12 @@ var Home = function Home() {
   }))));
 };
 
-var Div = styled_components_browser_esm/* default.div */.ZP.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  @media screen and (max-width: 768px) {\n    flex-direction: column;\n  }\n"])));
-var Image = styled_components_browser_esm/* default.img */.ZP.img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  max-width: 360px;\n  min-width: 360px;\n  max-height: 310px;\n  min-height: 310px;\n  @media screen and (max-width: 768px) {\n    max-width: 320px;\n    min-width: 320px;\n    max-height: 300px;\n    min-height: 300px;\n  }\n"])));
-var Carousels = (0,styled_components_browser_esm/* default */.ZP)(js/* Carousel */.lr)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  width: 35vw;\n  padding: 4vw 0 0 0vw;\n  height: 20vw;\n  @media screen and (max-width: 768px) {\n    display: none;\n  }\n"])));
-var Carouselss = (0,styled_components_browser_esm/* default */.ZP)(js/* Carousel */.lr)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  display: none;\n  @media (max-width: 768px) {\n    display: initial;\n  }\n"])));
+var Divs = styled_components_browser_esm/* default.div */.ZP.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  height: auto;\n  @media screen and (max-width: 768px) {\n    display: none;\n  }\n"])));
+var Div = styled_components_browser_esm/* default.div */.ZP.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: none;\n  @media screen and (max-width: 768px) {\n    display: flex;\n  flex-direction: column;\n  }\n"])));
+var ButtonDiv = styled_components_browser_esm/* default.div */.ZP.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  margin: auto;\n"])));
+var Image = styled_components_browser_esm/* default.img */.ZP.img(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  max-width: 360px;\n  min-width: 360px;\n  max-height: 310px;\n  min-height: 310px;\n  @media screen and (max-width: 768px) {\n    max-width: 100%;\n    min-width: 100%;\n    max-height: 300px;\n    min-height: 300px;\n  }\n"])));
+var Carousels = (0,styled_components_browser_esm/* default */.ZP)(js/* Carousel */.lr)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  width: 35vw;\n  padding: 4vw 0 0 0vw;\n  height: 20vw;\n\n"])));
+var Carouselss = (0,styled_components_browser_esm/* default */.ZP)(js/* Carousel */.lr)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  width: 100%;\n  height: 300px;\n"])));
 /* harmony default export */ const home = (Home);
 ;// CONCATENATED MODULE: ./src/images/banner-girl-1.png
 /* harmony default export */ const banner_girl_1 = (__webpack_require__.p + "images/banner-girl-1.24e9b8f48d5a0ac32680edd194503695.png");
@@ -7260,7 +7274,7 @@ var ViewProduct = function ViewProduct() {
 
 /* harmony default export */ const view_product = (ViewProduct);
 ;// CONCATENATED MODULE: ./src/views/Contact/style.js
-var style_templateObject, style_templateObject2, style_templateObject3, style_templateObject4, _templateObject5, _templateObject6;
+var style_templateObject, style_templateObject2, style_templateObject3, style_templateObject4, style_templateObject5, style_templateObject6;
 
 function style_taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -7269,8 +7283,8 @@ var Title = styled_components_browser_esm/* default.h1 */.ZP.h1(style_templateOb
 var ContainerContact = styled_components_browser_esm/* default.div */.ZP.div(style_templateObject2 || (style_templateObject2 = style_taggedTemplateLiteral(["\n  border: 3px solid gold;\n  margin: 1vw 15vw 1vw 15vw;\n  padding: 0vw 3vw 0vw 3vw;\n  font-size: 1.8vw;\n  color: white;\n  @media screen and (max-width: 768px) {\n    margin: 1vw 5vw 1vw 5vw;\n    font-size: 3.4vw;\n  }\n"])));
 var Input = styled_components_browser_esm/* default.input */.ZP.input(style_templateObject3 || (style_templateObject3 = style_taggedTemplateLiteral(["\n  font-size: 1.5vw;\n  padding: 0.7vw 42vw 0.7vw 2vw;\n  border-radius: 5px;\n  :-ms-input-placeholder{\n    color: black;\n  }\n  @media screen and (max-width: 768px) {\n    font-size: 3vw;\n  }\n"])));
 var InputMessage = styled_components_browser_esm/* default.input */.ZP.input(style_templateObject4 || (style_templateObject4 = style_taggedTemplateLiteral(["\n  font-size: 1.5vw;\n  padding: 0.7vw 42vw 10vw 2vw;\n  border-radius: 5px;\n  @media screen and (max-width: 768px) {\n    font-size: 3vw;\n  }\n"])));
-var Button = styled_components_browser_esm/* default.button */.ZP.button(_templateObject5 || (_templateObject5 = style_taggedTemplateLiteral(["\nmin-width: 80px;\nwidth: auto;\nheight: 30px;\nline-height: 30px;\nfont-size: 1.8vh;\nbackground: black;\ncolor: white;\nfont-weight: 1000;\nborder: none;\ncursor: pointer;\ndisplay: flex;\nmargin: 15px 0 15px 0;\n  &:hover {\n    background-color: purple;\n    color: white;\n  }\n"])));
-var Divbutton = styled_components_browser_esm/* default.div */.ZP.div(_templateObject6 || (_templateObject6 = style_taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: none;\n  justify-content: center;\n  margin: auto;\n"])));
+var Button = styled_components_browser_esm/* default.button */.ZP.button(style_templateObject5 || (style_templateObject5 = style_taggedTemplateLiteral(["\nmin-width: 80px;\nwidth: auto;\nheight: 30px;\nline-height: 30px;\nfont-size: 1.8vh;\nbackground: black;\ncolor: white;\nfont-weight: 1000;\nborder: none;\ncursor: pointer;\ndisplay: flex;\nmargin: 15px 0 15px 0;\n  &:hover {\n    background-color: purple;\n    color: white;\n  }\n"])));
+var Divbutton = styled_components_browser_esm/* default.div */.ZP.div(style_templateObject6 || (style_templateObject6 = style_taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: none;\n  justify-content: center;\n  margin: auto;\n"])));
 ;// CONCATENATED MODULE: ./src/views/Contact/Contact.jsx
 function Contact_slicedToArray(arr, i) { return Contact_arrayWithHoles(arr) || Contact_iterableToArrayLimit(arr, i) || Contact_unsupportedIterableToArray(arr, i) || Contact_nonIterableRest(); }
 
@@ -10516,4 +10530,4 @@ ProductForm.propTypes = {
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=main.951e682e13bfc768012b.js.map
+//# sourceMappingURL=main.0f7095146d5b104bbd52.js.map

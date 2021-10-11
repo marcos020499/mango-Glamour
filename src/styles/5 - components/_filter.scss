@@ -19,7 +19,11 @@
     flex-basis: 100% !important;
   }
 }
-
+@media (max-width: 768px) {
+  .filters-field{
+    margin-top: 20px;
+  }
+}
 .filters-brand {
   width: 100%;
 }

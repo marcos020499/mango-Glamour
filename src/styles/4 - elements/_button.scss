@@ -8,8 +8,7 @@
   min-width: 80px;
   height: 30px;
   font-size: 1.5vh;
-  width: auto;
-  line-height: 30px;
+  width: 200px;
   padding: $m-size;
   border: 1px solid $button-color;
   color: $white;
@@ -27,7 +26,11 @@
     text-decoration: none;
   }
 }
-
+@media (max-width: 768px) {
+  .button{
+    width: 180px;
+  }
+}
 .button:disabled {
   opacity: .5;
 

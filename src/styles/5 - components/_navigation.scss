@@ -95,7 +95,11 @@
   padding: 0;
   margin: 0;
 }
-
+@media (max-width: 768px) {
+  .navigation-menu-item {
+    z-index: 1000;
+  }
+}
 .navigation-action {
   display: flex;
   align-items: center;

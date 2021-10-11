@@ -69,7 +69,7 @@ const Navigation = () => {
         <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.RECOMMENDED_PRODUCTS}>Recomendado</NavLink></li>
         <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.CONTACT}>Contacto</NavLink></li>
       </ul>
-      {(pathname === ROUTE.SHOP || pathname === ROUTE.SEARCH) && (
+      {(pathname === ROUTE.SHOP || pathname === ROUTE.HOME || pathname === ROUTE.SEARCH) && (
         <FiltersToggle>
           <button className="button-muted button-small" type="button">
             Filters &nbsp;
