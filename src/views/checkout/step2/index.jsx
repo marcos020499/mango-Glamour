@@ -68,7 +68,7 @@ const ShippingDetails = ({ profile, shipping, subtotal }) => {
       <div className="checkout">
         <StepTracker current={2} />
         <div className="checkout-step-2">
-          <h3 className="text-center">Shipping Details</h3>
+          <h3 className="text-center">Detalles de envio</h3>
           <Formik
             initialValues={initFormikValues}
             validateOnChange

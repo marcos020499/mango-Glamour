@@ -105,7 +105,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     disabled={isLoading}
                     name="name"
                     type="text"
-                    label="* Product Name"
+                    label="* Nombre del producto"
                     placeholder="Gago"
                     style={{ textTransform: 'capitalize' }}
                     component={CustomInput}
@@ -119,7 +119,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     iid="brand"
                     options={brandOptions}
                     disabled={isLoading}
-                    placeholder="Select/Create Brand"
+                    placeholder="Seleccionar/crear marca"
                     label="* Brand"
                   />
                 </div>
@@ -130,7 +130,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                   name="description"
                   id="description"
                   rows={3}
-                  label="* Product Description"
+                  label="* descripcion del producto"
                   component={CustomTextarea}
                 />
               </div>
@@ -141,7 +141,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     name="price"
                     id="price"
                     type="number"
-                    label="* Price"
+                    label="* Precio"
                     component={CustomInput}
                   />
                 </div>
@@ -152,7 +152,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     name="maxQuantity"
                     type="number"
                     id="maxQuantity"
-                    label="* Max Quantity"
+                    label="* Cantidad maxima"
                     component={CustomInput}
                   />
                 </div>
@@ -165,8 +165,8 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     iid="keywords"
                     isMulti
                     disabled={isLoading}
-                    placeholder="Create/Select Keywords"
-                    label="* Keywords"
+                    placeholder="Crear/Seleccionar palabras claves"
+                    label="* Palabras claves"
                   />
                 </div>
                 &nbsp;
@@ -178,8 +178,8 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     type="number"
                     isMulti
                     disabled={isLoading}
-                    placeholder="Create/Select Sizes"
-                    label="* Sizes (Millimeter)"
+                    placeholder="Crear/Seleccionar medidas"
+                    label="* medidas (milimetros)"
                   />
                 </div>
               </div>
@@ -191,7 +191,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                 />
               </div>
               <div className="product-form-field">
-                <span className="d-block padding-s">Image Collection</span>
+                <span className="d-block padding-s">Colección de imagenes</span>
                 {!isFileLoading && (
                   <label htmlFor="product-input-file-collection">
                     <input
@@ -203,7 +203,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                       readOnly={isLoading}
                       type="file"
                     />
-                    Choose Images
+                    Escoger imágenes
                   </label>
                 )}
               </div>
@@ -258,7 +258,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                   />
                   <label htmlFor="recommended">
                     <h5 className="d-flex-grow-1 margin-0">
-                      &nbsp; Add to Recommended &nbsp;
+                      &nbsp; Añadir a recomendados &nbsp;
                     </h5>
                   </label>
                 </div>
@@ -292,7 +292,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                       readOnly={isLoading}
                       type="file"
                     />
-                    Choose Image
+                    Escoger imagen
                   </label>
                 )}
               </div>

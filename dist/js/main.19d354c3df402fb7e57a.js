@@ -219,7 +219,7 @@ var Filters = function Filters(_ref) {
     value: ""
   }, "Todas las marcas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("option", {
     value: "salt"
-  }, "Vcitoria secret"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("option", {
+  }, "Victoria secret"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("option", {
     value: "betsin"
   }, "Betsin Maalat"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("option", {
     value: "black"
@@ -579,10 +579,10 @@ var Header = function Header(_ref) {
     handleClick: handleClick,
     setClick: setClick,
     click: click
-  }), /*#__PURE__*/react.createElement(FiltersToggle/* default */.Z, null, /*#__PURE__*/react.createElement("button", {
+  }), (pathname === routes/* SHOP */.kd || pathname === routes/* SEARCH */.mo) && /*#__PURE__*/react.createElement(FiltersToggle/* default */.Z, null, /*#__PURE__*/react.createElement("button", {
     className: "button-muted button-small",
     type: "button"
-  }, "Filtros \xA0", /*#__PURE__*/react.createElement(FilterOutlined/* default */.Z, null))))), /*#__PURE__*/react.createElement("div", {
+  }, "Filters \xA0", /*#__PURE__*/react.createElement(FilterOutlined/* default */.Z, null))))), /*#__PURE__*/react.createElement("div", {
     className: "mobile-elements"
   }, /*#__PURE__*/react.createElement(BasketToggle/* default */.Z, null, function (_ref2) {
     var onClickToggle = _ref2.onClickToggle;
@@ -727,7 +727,7 @@ var Navigation = function Navigation() {
   }, "Recomendado")), /*#__PURE__*/react.createElement("li", null, /*#__PURE__*/react.createElement(react_router_dom/* NavLink */.OL, {
     activeClassName: "navigation-menu-active",
     to: routes/* CONTACT */.p5
-  }, "Contacto"))), (pathname === routes/* SHOP */.kd || pathname === routes/* HOME */.Sd || pathname === routes/* SEARCH */.mo) && /*#__PURE__*/react.createElement(FiltersToggle/* default */.Z, null, /*#__PURE__*/react.createElement("button", {
+  }, "Contacto"))), (pathname === routes/* SHOP */.kd || pathname === routes/* SEARCH */.mo) && /*#__PURE__*/react.createElement(FiltersToggle/* default */.Z, null, /*#__PURE__*/react.createElement("button", {
     className: "button-muted button-small",
     type: "button"
   }, "Filters \xA0", /*#__PURE__*/react.createElement(FilterOutlined/* default */.Z, null))), /*#__PURE__*/react.createElement(SearchBar/* default */.Z, null), /*#__PURE__*/react.createElement("ul", {
@@ -2566,10 +2566,10 @@ var useBasket = function useBasket() {
   var addToBasket = function addToBasket(product) {
     if (isItemOnBasket(product.id)) {
       dispatch((0,basketActions/* removeFromBasket */.Er)(product.id));
-      (0,utils/* displayActionMessage */.aZ)('Item removed from basket', 'info');
+      (0,utils/* displayActionMessage */.aZ)('Producto eliminado de la cesta', 'info');
     } else {
       dispatch((0,basketActions/* addToBasket */.H)(product));
-      (0,utils/* displayActionMessage */.aZ)('Item added to basket', 'success');
+      (0,utils/* displayActionMessage */.aZ)('Producto añadido a la cesta', 'success');
     }
   };
 
@@ -2624,7 +2624,7 @@ var useDocumentTitle = function useDocumentTitle(title) {
     if (title) {
       document.title = title;
     } else {
-      document.title = 'Mango Glamour - eCommerce React App';
+      document.title = 'Mango Glamour - eCommerce';
     }
   }, [title]);
 };
@@ -2817,8 +2817,8 @@ var useFileHandler = function useFileHandler(initState) {
     if (!regex.exec(val)) {
       alert('File type must be JPEG or PNG', 'error');
       setFileLoading(false);
-    } else if (size > 0.5) {
-      alert('File size exceeded 500kb, consider optimizing your image', 'error');
+    } else if (size > 1.5) {
+      alert('Fila excede 1500kb, considera optimizar tu imagen', 'error');
       setFileLoading(false);
     } else if (type === 'multiple') {
       Array.from(event.target.files).forEach(function (file) {
@@ -2979,7 +2979,7 @@ var useProduct = function useProduct(id) {
                   setLoading(false);
                 }
               } else {
-                setError('Product not found.');
+                setError('Producto no encontrado.');
               }
 
             case 7:
@@ -2992,7 +2992,7 @@ var useProduct = function useProduct(id) {
 
               if (didMount) {
                 setLoading(false);
-                setError((_context.t0 === null || _context.t0 === void 0 ? void 0 : _context.t0.message) || 'Something went wrong.');
+                setError((_context.t0 === null || _context.t0 === void 0 ? void 0 : _context.t0.message) || 'Algo salió mal.');
               }
 
             case 12:
@@ -3074,7 +3074,7 @@ var useRecommendedProducts = function useRecommendedProducts(itemsCount) {
 
               if (docs.empty) {
                 if (didMount) {
-                  setError('No recommended products found.');
+                  setError('Ningún producto recomendado fue encontrado.');
                   setLoading(false);
                 }
               } else {
@@ -3928,11 +3928,11 @@ var BasketItem = function BasketItem(_ref) {
     className: "basket-item-specs"
   }, /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("span", {
     className: "spec-title"
-  }, "Quantity"), /*#__PURE__*/react.createElement("h5", {
+  }, "Cantidad"), /*#__PURE__*/react.createElement("h5", {
     className: "my-0"
   }, product.quantity)), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("span", {
     className: "spec-title"
-  }, "Size"), /*#__PURE__*/react.createElement("h5", {
+  }, "Talla"), /*#__PURE__*/react.createElement("h5", {
     className: "my-0"
   }, product.selectedSize, ' ')), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("span", {
     className: "spec-title"
@@ -4941,7 +4941,7 @@ var ProductItem = function ProductItem(_ref) {
     className: "product-card-button button-small button button-block ".concat(itemOnBasket ? 'button-border button-border-gray' : ''),
     onClick: handleAddToBasket,
     type: "button"
-  }, itemOnBasket ? 'Remove from basket' : 'Add to basket')));
+  }, itemOnBasket ? 'Eliminar de la canasta' : 'Añadir a la canasta')));
 };
 
 ProductItem.defaultProps = {
@@ -5053,9 +5053,9 @@ var ProductList = function ProductList(props) {
 
   if (filteredProducts.length === 0 && requestStatus) {
     return /*#__PURE__*/react.createElement(common/* MessageDisplay */.t0, {
-      message: (requestStatus === null || requestStatus === void 0 ? void 0 : requestStatus.message) || 'Something went wrong :(',
+      message: (requestStatus === null || requestStatus === void 0 ? void 0 : requestStatus.message) || 'Algo salio mal :(',
       action: fetchProducts,
-      buttonLabel: "Try Again"
+      buttonLabel: "Intentar de nuevo"
     });
   }
 
@@ -5066,7 +5066,7 @@ var ProductList = function ProductList(props) {
     disabled: isFetching,
     onClick: fetchProducts,
     type: "button"
-  }, isFetching ? 'Fetching Items...' : 'Show More Items')));
+  }, isFetching ? 'Obteniendo productos...' : 'Mostrar más `roductos')));
 };
 
 ProductList.defaultProps = {
@@ -5334,13 +5334,13 @@ var ProductItem_ProductItem = function ProductItem(_ref) {
     className: "button button-border button-small",
     onClick: onClickEdit,
     type: "button"
-  }, "Edit"), "\xA0", /*#__PURE__*/react.createElement("button", {
+  }, "Editar"), "\xA0", /*#__PURE__*/react.createElement("button", {
     className: "button button-border button-small button-danger",
     onClick: onDeleteProduct,
     type: "button"
-  }, "Delete"), /*#__PURE__*/react.createElement("div", {
+  }, "Borrar"), /*#__PURE__*/react.createElement("div", {
     className: "item-action-confirm"
-  }, /*#__PURE__*/react.createElement("h5", null, "Are you sure you want to delete this?"), /*#__PURE__*/react.createElement("button", {
+  }, /*#__PURE__*/react.createElement("h5", null, "Estas seguro de borrar el producto?"), /*#__PURE__*/react.createElement("button", {
     className: "button button-small button-border",
     onClick: onCancelDelete,
     type: "button"
@@ -5348,7 +5348,7 @@ var ProductItem_ProductItem = function ProductItem(_ref) {
     className: "button button-small button-danger",
     onClick: onConfirmDelete,
     type: "button"
-  }, "Yes")))));
+  }, "Si")))));
 };
 
 ProductItem_ProductItem.propTypes = {
@@ -5389,16 +5389,16 @@ var ProductsNavbar = function ProductsNavbar(props) {
     className: "product-admin-header"
   }, /*#__PURE__*/react.createElement("h3", {
     className: "product-admin-header-title"
-  }, "Products \xA0 (", "".concat(productsCount, " / ").concat(totalProductsCount), ")"), /*#__PURE__*/react.createElement(common/* SearchBar */.E1, null), "\xA0", /*#__PURE__*/react.createElement(common/* FiltersToggle */.a7, null, /*#__PURE__*/react.createElement("button", {
+  }, "Productos \xA0 (", "".concat(productsCount, " / ").concat(totalProductsCount), ")"), /*#__PURE__*/react.createElement(common/* SearchBar */.E1, null), "\xA0", /*#__PURE__*/react.createElement(common/* FiltersToggle */.a7, null, /*#__PURE__*/react.createElement("button", {
     className: "button-muted button-small",
     type: "button"
-  }, /*#__PURE__*/react.createElement(FilterOutlined/* default */.Z, null), "\xA0More Filters")), /*#__PURE__*/react.createElement("button", {
+  }, /*#__PURE__*/react.createElement(FilterOutlined/* default */.Z, null), "\xA0Mas filtros")), /*#__PURE__*/react.createElement("button", {
     className: "button button-small",
     onClick: function onClick() {
       return history.push(routes/* ADD_PRODUCT */.zN);
     },
     type: "button"
-  }, /*#__PURE__*/react.createElement(PlusOutlined/* default */.Z, null), "\xA0 Add New Product"));
+  }, /*#__PURE__*/react.createElement(PlusOutlined/* default */.Z, null), "\xA0 Agregar un nuevo producto"));
 };
 
 ProductsNavbar.propTypes = {
@@ -5424,15 +5424,15 @@ var ProductsTable = function ProductsTable(_ref) {
     className: "grid-col"
   }), /*#__PURE__*/react.createElement("div", {
     className: "grid-col"
-  }, /*#__PURE__*/react.createElement("h5", null, "Name")), /*#__PURE__*/react.createElement("div", {
+  }, /*#__PURE__*/react.createElement("h5", null, "Nombre")), /*#__PURE__*/react.createElement("div", {
     className: "grid-col"
-  }, /*#__PURE__*/react.createElement("h5", null, "Brand")), /*#__PURE__*/react.createElement("div", {
+  }, /*#__PURE__*/react.createElement("h5", null, "Marca")), /*#__PURE__*/react.createElement("div", {
     className: "grid-col"
-  }, /*#__PURE__*/react.createElement("h5", null, "Price")), /*#__PURE__*/react.createElement("div", {
+  }, /*#__PURE__*/react.createElement("h5", null, "Precio")), /*#__PURE__*/react.createElement("div", {
     className: "grid-col"
-  }, /*#__PURE__*/react.createElement("h5", null, "Date Added")), /*#__PURE__*/react.createElement("div", {
+  }, /*#__PURE__*/react.createElement("h5", null, "Fecha de anadido")), /*#__PURE__*/react.createElement("div", {
     className: "grid-col"
-  }, /*#__PURE__*/react.createElement("h5", null, "Qty"))), filteredProducts.length === 0 ? new Array(10).fill({}).map(function (product, index) {
+  }, /*#__PURE__*/react.createElement("h5", null, "Cantidad"))), filteredProducts.length === 0 ? new Array(10).fill({}).map(function (product, index) {
     return /*#__PURE__*/react.createElement(components_ProductItem // eslint-disable-next-line react/no-array-index-key
     , {
       key: "product-skeleton ".concat(index),
@@ -5874,7 +5874,7 @@ var StepTracker = function StepTracker(_ref) {
     className: "checkout-header-step"
   }, "1")), /*#__PURE__*/react.createElement("h6", {
     className: "checkout-header-subtitle"
-  }, "Order Summary"))), /*#__PURE__*/react.createElement("li", {
+  }, "Resumen del pedido"))), /*#__PURE__*/react.createElement("li", {
     className: "checkout-header-list ".concat(className(2))
   }, /*#__PURE__*/react.createElement("div", {
     className: "checkout-header-item"
@@ -5884,7 +5884,7 @@ var StepTracker = function StepTracker(_ref) {
     className: "checkout-header-step"
   }, "2")), /*#__PURE__*/react.createElement("h6", {
     className: "checkout-header-subtitle"
-  }, "Shipping Details"))), /*#__PURE__*/react.createElement("li", {
+  }, "Detalles de envio"))), /*#__PURE__*/react.createElement("li", {
     className: "checkout-header-list ".concat(className(3))
   }, /*#__PURE__*/react.createElement("div", {
     className: "checkout-header-item"
@@ -5894,7 +5894,7 @@ var StepTracker = function StepTracker(_ref) {
     className: "checkout-header-step"
   }, "3")), /*#__PURE__*/react.createElement("h6", {
     className: "checkout-header-subtitle"
-  }, "Payment")))));
+  }, "Pago")))));
 };
 
 StepTracker.propTypes = {
@@ -5995,9 +5995,9 @@ var OrderSummary = function OrderSummary(_ref) {
     className: "checkout-step-1"
   }, /*#__PURE__*/react.createElement("h3", {
     className: "text-center"
-  }, "Order Summary"), /*#__PURE__*/react.createElement("span", {
+  }, "Detalles del pedido"), /*#__PURE__*/react.createElement("span", {
     className: "d-block text-center"
-  }, "Review items in your basket."), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement("div", {
+  }, "Resumen de tus pedidos en la canasta."), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement("div", {
     className: "checkout-items"
   }, basket.map(function (product) {
     return /*#__PURE__*/react.createElement(basket_BasketItem, {
@@ -6018,11 +6018,11 @@ var OrderSummary = function OrderSummary(_ref) {
     className: "button button-muted",
     onClick: onClickPrevious,
     type: "button"
-  }, /*#__PURE__*/react.createElement(ShopOutlined/* default */.Z, null), "\xA0 Continue Shopping"), /*#__PURE__*/react.createElement("button", {
+  }, /*#__PURE__*/react.createElement(ShopOutlined/* default */.Z, null), "\xA0 Continuar comprando"), /*#__PURE__*/react.createElement("button", {
     className: "button",
     onClick: onClickNext,
     type: "submit"
-  }, "Next Step \xA0", /*#__PURE__*/react.createElement(ArrowRightOutlined/* default */.Z, null)))));
+  }, "Siguiente \xA0", /*#__PURE__*/react.createElement(ArrowRightOutlined/* default */.Z, null)))));
 };
 
 OrderSummary.propTypes = {
@@ -6057,8 +6057,8 @@ var ShippingForm = function ShippingForm() {
   }, /*#__PURE__*/react.createElement(formik_esm/* Field */.gN, {
     name: "fullname",
     type: "text",
-    label: "* Full Name",
-    placeholder: "Enter your full name",
+    label: "* Nombre completo",
+    placeholder: "Ingresa tu nombre completo",
     component: formik/* CustomInput */.t7,
     style: {
       textTransform: 'capitalize'
@@ -6068,8 +6068,8 @@ var ShippingForm = function ShippingForm() {
   }, /*#__PURE__*/react.createElement(formik_esm/* Field */.gN, {
     name: "email",
     type: "email",
-    label: "* Email Address",
-    placeholder: "Enter your email address",
+    label: "* Direccion de email",
+    placeholder: "Ingresa tu direcci\xF3n de correo",
     component: formik/* CustomInput */.t7
   }))), /*#__PURE__*/react.createElement("div", {
     className: "checkout-fieldset"
@@ -6078,8 +6078,8 @@ var ShippingForm = function ShippingForm() {
   }, /*#__PURE__*/react.createElement(formik_esm/* Field */.gN, {
     name: "address",
     type: "text",
-    label: "* Shipping Address",
-    placeholder: "Enter full shipping address",
+    label: "* Direcci\xF3n de envio",
+    placeholder: "Ingresa la direcci\xF3n completa de envio",
     component: formik/* CustomInput */.t7
   })), /*#__PURE__*/react.createElement("div", {
     className: "d-block checkout-field"
@@ -6104,7 +6104,7 @@ var ShippingForm = function ShippingForm() {
     react.createElement("label", {
       className: "label-input",
       htmlFor: field.name
-    }, "Shipping Option"), /*#__PURE__*/react.createElement("div", {
+    }, "Opci\xF3n de envio"), /*#__PURE__*/react.createElement("div", {
       className: "checkout-checkbox-field"
     }, /*#__PURE__*/react.createElement("input", {
       checked: field.value,
@@ -6119,7 +6119,7 @@ var ShippingForm = function ShippingForm() {
       htmlFor: field.name
     }, /*#__PURE__*/react.createElement("h5", {
       className: "d-flex-grow-1 margin-0"
-    }, "\xA0 International Shipping \xA0", /*#__PURE__*/react.createElement("span", {
+    }, "\xA0 Envio nacional \xA0", /*#__PURE__*/react.createElement("span", {
       className: "text-subtle"
     }, "7-14 days")), /*#__PURE__*/react.createElement("h4", {
       className: "margin-0"
@@ -6144,9 +6144,9 @@ var ShippingTotal = function ShippingTotal(_ref) {
     className: "checkout-total d-flex-end padding-right-m"
   }, /*#__PURE__*/react.createElement("table", null, /*#__PURE__*/react.createElement("tbody", null, /*#__PURE__*/react.createElement("tr", null, /*#__PURE__*/react.createElement("td", null, /*#__PURE__*/react.createElement("span", {
     className: "d-block margin-0 padding-right-s text-right"
-  }, "International Shipping: \xA0")), /*#__PURE__*/react.createElement("td", null, /*#__PURE__*/react.createElement("h4", {
+  }, "Envio nacional: \xA0")), /*#__PURE__*/react.createElement("td", null, /*#__PURE__*/react.createElement("h4", {
     className: "basket-total-amount text-subtle text-right margin-0 "
-  }, values.isInternational ? '$50.00' : '$0.00'))), /*#__PURE__*/react.createElement("tr", null, /*#__PURE__*/react.createElement("td", null, /*#__PURE__*/react.createElement("span", {
+  }, values.isInternational ? '$50.00' : '$50.00'))), /*#__PURE__*/react.createElement("tr", null, /*#__PURE__*/react.createElement("td", null, /*#__PURE__*/react.createElement("span", {
     className: "d-block margin-0 padding-right-s text-right"
   }, "Subtotal: \xA0")), /*#__PURE__*/react.createElement("td", null, /*#__PURE__*/react.createElement("h4", {
     className: "basket-total-amount text-subtle text-right margin-0"
@@ -6154,7 +6154,7 @@ var ShippingTotal = function ShippingTotal(_ref) {
     className: "d-block margin-0 padding-right-s text-right"
   }, "Total: \xA0")), /*#__PURE__*/react.createElement("td", null, /*#__PURE__*/react.createElement("h2", {
     className: "basket-total-amount text-right"
-  }, (0,utils/* displayMoney */.ik)(Number(subtotal) + (values.isInternational ? 50 : 0))))))));
+  }, (0,utils/* displayMoney */.ik)(Number(subtotal) + (values.isInternational ? 50 : 50))))))));
 };
 
 ShippingTotal.propTypes = {
@@ -6228,7 +6228,7 @@ var ShippingDetails = function ShippingDetails(_ref) {
     className: "checkout-step-2"
   }, /*#__PURE__*/react.createElement("h3", {
     className: "text-center"
-  }, "Shipping Details"), /*#__PURE__*/react.createElement(formik_esm/* Formik */.J9, {
+  }, "Detalles de envio"), /*#__PURE__*/react.createElement(formik_esm/* Formik */.J9, {
     initialValues: initFormikValues,
     validateOnChange: true,
     validationSchema: step2_FormSchema,
@@ -6479,7 +6479,7 @@ var PayPalPayment = function PayPalPayment() {
     className: "margin-0"
   }, "PayPal"), /*#__PURE__*/react.createElement("span", {
     className: "text-subtle d-block margin-top-s"
-  }, "Pay easily, fast and secure with PayPal.")), /*#__PURE__*/react.createElement("div", {
+  }, "Paga facilmente, r\xE1pido y seguro con PayPal.")), /*#__PURE__*/react.createElement("div", {
     className: "payment-img payment-img-paypal"
   })))));
 };
@@ -6544,12 +6544,12 @@ var Total = function Total(_ref) {
       return onClickBack(values);
     },
     type: "button"
-  }, /*#__PURE__*/react.createElement(ArrowLeftOutlined/* default */.Z, null), "\xA0 Go Back"), /*#__PURE__*/react.createElement("button", {
+  }, /*#__PURE__*/react.createElement(ArrowLeftOutlined/* default */.Z, null), "\xA0 Regresar"), /*#__PURE__*/react.createElement("button", {
     className: "button",
     disabled: false,
     onClick: submitForm,
     type: "button"
-  }, /*#__PURE__*/react.createElement(CheckOutlined/* default */.Z, null), "\xA0 Confirm")));
+  }, /*#__PURE__*/react.createElement(CheckOutlined/* default */.Z, null), "\xA0 Confirmar")));
 };
 
 Total.propTypes = {
@@ -6740,11 +6740,11 @@ var PageNotFound = function PageNotFound(_ref) {
   (0,hooks/* useScrollTop */.j)();
   return /*#__PURE__*/react.createElement("div", {
     className: "page-not-found"
-  }, /*#__PURE__*/react.createElement("h1", null, ":( Page you are looking for doesn't exists."), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement("button", {
+  }, /*#__PURE__*/react.createElement("h1", null, ":( La pagina que estas buscando no existe."), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement("button", {
     className: "button",
     onClick: history.goBack,
     type: "button"
-  }, "Go back"));
+  }, "Regresar"));
 };
 
 PageNotFound.propTypes = {
@@ -6780,7 +6780,7 @@ var FeaturedProducts = function FeaturedProducts() {
     className: "banner"
   }, /*#__PURE__*/react.createElement("div", {
     className: "banner-desc"
-  }, /*#__PURE__*/react.createElement("h1", null, "Featured Products")), /*#__PURE__*/react.createElement("div", {
+  }, /*#__PURE__*/react.createElement("h1", null, "Productos destacados")), /*#__PURE__*/react.createElement("div", {
     className: "banner-img"
   }, /*#__PURE__*/react.createElement("img", {
     src: banner_guy,
@@ -6805,7 +6805,7 @@ var styled_components_browser_esm = __webpack_require__(33434);
 // EXTERNAL MODULE: ./node_modules/react-responsive-carousel/lib/js/index.js
 var js = __webpack_require__(10615);
 ;// CONCATENATED MODULE: ./src/views/home/index.jsx
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -6857,14 +6857,14 @@ var Home = function Home() {
     className: "text-thin"
   }, /*#__PURE__*/react.createElement("strong", null, "Tu mejor opci\xF3n")), /*#__PURE__*/react.createElement(Image, {
     src: "https://res.cloudinary.com/marcos020499/image/upload/v1628783010/banner_z04kmu.jpg"
-  }), /*#__PURE__*/react.createElement(ButtonDiv, null, /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
+  }), /*#__PURE__*/react.createElement(ButtonDivP, null, /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
     to: routes/* SHOP */.kd,
     className: "button"
   }, "Comprar ahora \xA0", /*#__PURE__*/react.createElement(ArrowRightOutlined/* default */.Z, null)))), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("h1", {
     className: "text-thin"
   }, /*#__PURE__*/react.createElement("strong", null, "No lo piensas m\xE1s")), /*#__PURE__*/react.createElement(Image, {
     src: "https://res.cloudinary.com/marcos020499/image/upload/v1628784608/banner2_s2i1eb.jpg"
-  }), /*#__PURE__*/react.createElement(ButtonDiv, null, /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
+  }), /*#__PURE__*/react.createElement(ButtonDivP, null, /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
     to: routes/* SHOP */.kd,
     className: "button"
   }, "Comprar ahora \xA0", /*#__PURE__*/react.createElement(ArrowRightOutlined/* default */.Z, null)))))), /*#__PURE__*/react.createElement(Divs, {
@@ -6920,9 +6920,10 @@ var Home = function Home() {
 var Divs = styled_components_browser_esm/* default.div */.ZP.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  height: auto;\n  @media screen and (max-width: 768px) {\n    display: none;\n  }\n"])));
 var Div = styled_components_browser_esm/* default.div */.ZP.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: none;\n  @media screen and (max-width: 768px) {\n    display: flex;\n  flex-direction: column;\n  }\n"])));
 var ButtonDiv = styled_components_browser_esm/* default.div */.ZP.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  margin: auto;\n"])));
-var Image = styled_components_browser_esm/* default.img */.ZP.img(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  max-width: 360px;\n  min-width: 360px;\n  max-height: 310px;\n  min-height: 310px;\n  @media screen and (max-width: 768px) {\n    max-width: 100%;\n    min-width: 100%;\n    max-height: 300px;\n    min-height: 300px;\n  }\n"])));
-var Carousels = (0,styled_components_browser_esm/* default */.ZP)(js/* Carousel */.lr)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  width: 35vw;\n  padding: 4vw 0 0 0vw;\n  height: 20vw;\n\n"])));
-var Carouselss = (0,styled_components_browser_esm/* default */.ZP)(js/* Carousel */.lr)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  width: 100%;\n  height: 300px;\n"])));
+var ButtonDivP = styled_components_browser_esm/* default.div */.ZP.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  margin: auto;  \n"])));
+var Image = styled_components_browser_esm/* default.img */.ZP.img(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  max-width: 360px;\n  min-width: 360px;\n  max-height: 310px;\n  min-height: 310px;\n  @media screen and (max-width: 768px) {\n    max-width: 80%;\n    min-width: 80%;\n    max-height: 240px;\n    min-height: 240px;\n  }\n"])));
+var Carousels = (0,styled_components_browser_esm/* default */.ZP)(js/* Carousel */.lr)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  width: 35vw;\n  padding: 4vw 0 0 0vw;\n  height: 20vw;\n\n"])));
+var Carouselss = (0,styled_components_browser_esm/* default */.ZP)(js/* Carousel */.lr)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  width: 100%;\n  height: 300px;\n"])));
 /* harmony default export */ const home = (Home);
 ;// CONCATENATED MODULE: ./src/images/banner-girl-1.png
 /* harmony default export */ const banner_girl_1 = (__webpack_require__.p + "images/banner-girl-1.24e9b8f48d5a0ac32680edd194503695.png");
@@ -6951,7 +6952,7 @@ var RecommendedProducts = function RecommendedProducts() {
     className: "banner"
   }, /*#__PURE__*/react.createElement("div", {
     className: "banner-desc"
-  }, /*#__PURE__*/react.createElement("h1", null, "Recommended Products")), /*#__PURE__*/react.createElement("div", {
+  }, /*#__PURE__*/react.createElement("h1", null, "Productos recomendados")), /*#__PURE__*/react.createElement("div", {
     className: "banner-img"
   }, /*#__PURE__*/react.createElement("img", {
     src: banner_girl_1,
@@ -7225,8 +7226,8 @@ var ViewProduct = function ViewProduct() {
     className: "divider"
   }), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("span", {
     className: "text-subtle"
-  }, "Lens Width and Frame Size"), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement(react_select_esm/* default */.ZP, {
-    placeholder: "--Select Size--",
+  }, "tama\xF1o"), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement("br", null), /*#__PURE__*/react.createElement(react_select_esm/* default */.ZP, {
+    placeholder: "--Seleccionar talla--",
     onChange: onSelectedSizeChange,
     options: product.sizes.sort(function (a, b) {
       return a < b ? -1 : 1;
@@ -7251,21 +7252,21 @@ var ViewProduct = function ViewProduct() {
   })), /*#__PURE__*/react.createElement("h1", null, (0,utils/* displayMoney */.ik)(product.price)), /*#__PURE__*/react.createElement("div", {
     className: "product-modal-action"
   }, /*#__PURE__*/react.createElement("button", {
-    className: "button button-small ".concat(isItemOnBasket(product.id) ? 'button-border button-border-gray' : ''),
+    className: "button button-small ".concat(isItemOnBasket(product.id) ? 'button-border ' : ''),
     onClick: handleAddToBasket,
     type: "button"
-  }, isItemOnBasket(product.id) ? 'Remove From Basket' : 'Add To Basket')))), /*#__PURE__*/react.createElement("div", {
+  }, isItemOnBasket(product.id) ? 'Quitar de la canasta' : 'Agregar a la canasta')))), /*#__PURE__*/react.createElement("div", {
     style: {
       marginTop: '10rem'
     }
   }, /*#__PURE__*/react.createElement("div", {
     className: "display-header"
-  }, /*#__PURE__*/react.createElement("h1", null, "Recommended"), /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
+  }, /*#__PURE__*/react.createElement("h1", null, "Recomendado"), /*#__PURE__*/react.createElement(react_router_dom/* Link */.rU, {
     to: routes/* RECOMMENDED_PRODUCTS */.DG
   }, "See All")), errorFeatured && !isLoadingFeatured ? /*#__PURE__*/react.createElement(common/* MessageDisplay */.t0, {
     message: error,
     action: fetchRecommendedProducts,
-    buttonLabel: "Try Again"
+    buttonLabel: "Intenta de nuevo"
   }) : /*#__PURE__*/react.createElement(ProductShowcaseGrid, {
     products: recommendedProducts,
     skeletonCount: 3
@@ -7279,10 +7280,10 @@ var style_templateObject, style_templateObject2, style_templateObject3, style_te
 function style_taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
-var Title = styled_components_browser_esm/* default.h1 */.ZP.h1(style_templateObject || (style_templateObject = style_taggedTemplateLiteral(["\n  text-align: center;\n  font-size: 2vw;\n  @media screen and (max-width: 768px) {\n    color: white;\n    font-size: 4.5vw;\n  }\n"])));
-var ContainerContact = styled_components_browser_esm/* default.div */.ZP.div(style_templateObject2 || (style_templateObject2 = style_taggedTemplateLiteral(["\n  border: 3px solid gold;\n  margin: 1vw 15vw 1vw 15vw;\n  padding: 0vw 3vw 0vw 3vw;\n  font-size: 1.8vw;\n  color: white;\n  @media screen and (max-width: 768px) {\n    margin: 1vw 5vw 1vw 5vw;\n    font-size: 3.4vw;\n  }\n"])));
-var Input = styled_components_browser_esm/* default.input */.ZP.input(style_templateObject3 || (style_templateObject3 = style_taggedTemplateLiteral(["\n  font-size: 1.5vw;\n  padding: 0.7vw 42vw 0.7vw 2vw;\n  border-radius: 5px;\n  :-ms-input-placeholder{\n    color: black;\n  }\n  @media screen and (max-width: 768px) {\n    font-size: 3vw;\n  }\n"])));
-var InputMessage = styled_components_browser_esm/* default.input */.ZP.input(style_templateObject4 || (style_templateObject4 = style_taggedTemplateLiteral(["\n  font-size: 1.5vw;\n  padding: 0.7vw 42vw 10vw 2vw;\n  border-radius: 5px;\n  @media screen and (max-width: 768px) {\n    font-size: 3vw;\n  }\n"])));
+var Title = styled_components_browser_esm/* default.h1 */.ZP.h1(style_templateObject || (style_templateObject = style_taggedTemplateLiteral(["\n  text-align: center;\n  font-family: 'Tajawal', Helvetica, Arial, sans-serif;\n  font-size: 25px;\n  @media screen and (max-width: 768px) {\n    color: white;\n    font-size: 4.5vw;\n  }\n"])));
+var ContainerContact = styled_components_browser_esm/* default.div */.ZP.div(style_templateObject2 || (style_templateObject2 = style_taggedTemplateLiteral(["\n  border: 2px solid gold;\n  margin: 7vw 15vw 1vw 15vw;\n  padding: 0vw 3vw 0vw 3vw;\n  font-family: 'Tajawal', Helvetica, Arial, sans-serif;\n  font-size: 20px;\n  color: white;\n  @media screen and (max-width: 768px) {\n    margin: 1vw 5vw 1vw 5vw;\n    font-size: 3.4vw;\n  }\n"])));
+var Input = styled_components_browser_esm/* default.input */.ZP.input(style_templateObject3 || (style_templateObject3 = style_taggedTemplateLiteral(["\n  font-size: 15px;\n  padding: 0.7vw 42vw 0.7vw 2vw;\n  border-radius: 5px;\n  :-ms-input-placeholder{\n    color: black;\n  }\n  @media screen and (max-width: 768px) {\n    font-size: 3vw;\n  }\n"])));
+var InputMessage = styled_components_browser_esm/* default.input */.ZP.input(style_templateObject4 || (style_templateObject4 = style_taggedTemplateLiteral(["\n  font-size: 13px;\n  padding: 0.7vw 42vw 10vw 2vw;\n  border-radius: 5px;\n  @media screen and (max-width: 768px) {\n    font-size: 3vw;\n  }\n"])));
 var Button = styled_components_browser_esm/* default.button */.ZP.button(style_templateObject5 || (style_templateObject5 = style_taggedTemplateLiteral(["\nmin-width: 80px;\nwidth: auto;\nheight: 30px;\nline-height: 30px;\nfont-size: 1.8vh;\nbackground: black;\ncolor: white;\nfont-weight: 1000;\nborder: none;\ncursor: pointer;\ndisplay: flex;\nmargin: 15px 0 15px 0;\n  &:hover {\n    background-color: purple;\n    color: white;\n  }\n"])));
 var Divbutton = styled_components_browser_esm/* default.div */.ZP.div(style_templateObject6 || (style_templateObject6 = style_taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: none;\n  justify-content: center;\n  margin: auto;\n"])));
 ;// CONCATENATED MODULE: ./src/views/Contact/Contact.jsx
@@ -9991,7 +9992,7 @@ var ProductForm = function ProductForm(_ref) {
       disabled: isLoading,
       name: "name",
       type: "text",
-      label: "* Product Name",
+      label: "* Nombre del producto",
       placeholder: "Gago",
       style: {
         textTransform: 'capitalize'
@@ -10008,7 +10009,7 @@ var ProductForm = function ProductForm(_ref) {
       iid: "brand",
       options: brandOptions,
       disabled: isLoading,
-      placeholder: "Select/Create Brand",
+      placeholder: "Seleccionar/crear marca",
       label: "* Brand"
     }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
       className: "product-form-field"
@@ -10017,7 +10018,7 @@ var ProductForm = function ProductForm(_ref) {
       name: "description",
       id: "description",
       rows: 3,
-      label: "* Product Description",
+      label: "* descripcion del producto",
       component: components_formik__WEBPACK_IMPORTED_MODULE_1__/* .CustomTextarea */ .iJ
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
       className: "d-flex"
@@ -10028,7 +10029,7 @@ var ProductForm = function ProductForm(_ref) {
       name: "price",
       id: "price",
       type: "number",
-      label: "* Price",
+      label: "* Precio",
       component: components_formik__WEBPACK_IMPORTED_MODULE_1__/* .CustomInput */ .t7
     })), "\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
       className: "product-form-field"
@@ -10037,7 +10038,7 @@ var ProductForm = function ProductForm(_ref) {
       name: "maxQuantity",
       type: "number",
       id: "maxQuantity",
-      label: "* Max Quantity",
+      label: "* Cantidad maxima",
       component: components_formik__WEBPACK_IMPORTED_MODULE_1__/* .CustomInput */ .t7
     }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
       className: "d-flex"
@@ -10054,8 +10055,8 @@ var ProductForm = function ProductForm(_ref) {
       iid: "keywords",
       isMulti: true,
       disabled: isLoading,
-      placeholder: "Create/Select Keywords",
-      label: "* Keywords"
+      placeholder: "Crear/Seleccionar palabras claves",
+      label: "* Palabras claves"
     })), "\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
       className: "product-form-field"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(components_formik__WEBPACK_IMPORTED_MODULE_1__/* .CustomCreatableSelect */ .VT, {
@@ -10070,8 +10071,8 @@ var ProductForm = function ProductForm(_ref) {
       type: "number",
       isMulti: true,
       disabled: isLoading,
-      placeholder: "Create/Select Sizes",
-      label: "* Sizes (Millimeter)"
+      placeholder: "Crear/Seleccionar medidas",
+      label: "* medidas (milimetros)"
     }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
       className: "product-form-field"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(formik__WEBPACK_IMPORTED_MODULE_2__/* .FieldArray */ .F2, {
@@ -10082,7 +10083,7 @@ var ProductForm = function ProductForm(_ref) {
       className: "product-form-field"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("span", {
       className: "d-block padding-s"
-    }, "Image Collection"), !isFileLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("label", {
+    }, "Colecci\xF3n de imagenes"), !isFileLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("label", {
       htmlFor: "product-input-file-collection"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("input", {
       disabled: isLoading,
@@ -10097,7 +10098,7 @@ var ProductForm = function ProductForm(_ref) {
       },
       readOnly: isLoading,
       type: "file"
-    }), "Choose Images")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
+    }), "Escoger im\xE1genes")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
       className: "product-form-collection"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(react__WEBPACK_IMPORTED_MODULE_5__.Fragment, null, imageFile.imageCollection.length >= 1 && imageFile.imageCollection.map(function (image) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
@@ -10153,7 +10154,7 @@ var ProductForm = function ProductForm(_ref) {
       htmlFor: "recommended"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("h5", {
       className: "d-flex-grow-1 margin-0"
-    }, "\xA0 Add to Recommended \xA0")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
+    }, "\xA0 A\xF1adir a recomendados \xA0")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
       className: "product-form-field product-form-submit"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("button", {
       className: "button",
@@ -10179,7 +10180,7 @@ var ProductForm = function ProductForm(_ref) {
       },
       readOnly: isLoading,
       type: "file"
-    }), "Choose Image")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
+    }), "Escoger imagen")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
       className: "product-form-image-wrapper"
     }, (imageFile.image.url || product.image) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(components_common__WEBPACK_IMPORTED_MODULE_0__/* .ImageLoader */ .S3, {
       alt: "",
@@ -10530,4 +10531,4 @@ ProductForm.propTypes = {
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=main.0f7095146d5b104bbd52.js.map
+//# sourceMappingURL=main.19d354c3df402fb7e57a.js.map

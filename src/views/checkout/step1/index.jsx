@@ -22,8 +22,8 @@ const OrderSummary = ({ basket, subtotal }) => {
     <div className="checkout">
       <StepTracker current={1} />
       <div className="checkout-step-1">
-        <h3 className="text-center">Order Summary</h3>
-        <span className="d-block text-center">Review items in your basket.</span>
+        <h3 className="text-center">Detalles del pedido</h3>
+        <span className="d-block text-center">Resumen de tus pedidos en la canasta.</span>
         <br />
         <div className="checkout-items">
           {basket.map((product) => (
@@ -49,14 +49,14 @@ const OrderSummary = ({ basket, subtotal }) => {
           >
             <ShopOutlined />
             &nbsp;
-            Continue Shopping
+            Continuar comprando
           </button>
           <button
             className="button"
             onClick={onClickNext}
             type="submit"
           >
-            Next Step
+            Siguiente
             &nbsp;
             <ArrowRightOutlined />
           </button>

@@ -13,8 +13,8 @@ const ShippingForm = () => {
             <Field
               name="fullname"
               type="text"
-              label="* Full Name"
-              placeholder="Enter your full name"
+              label="* Nombre completo"
+              placeholder="Ingresa tu nombre completo"
               component={CustomInput}
               style={{ textTransform: 'capitalize' }}
             />
@@ -23,8 +23,8 @@ const ShippingForm = () => {
             <Field
               name="email"
               type="email"
-              label="* Email Address"
-              placeholder="Enter your email address"
+              label="* Direccion de email"
+              placeholder="Ingresa tu dirección de correo"
               component={CustomInput}
             />
           </div>
@@ -34,8 +34,8 @@ const ShippingForm = () => {
             <Field
               name="address"
               type="text"
-              label="* Shipping Address"
-              placeholder="Enter full shipping address"
+              label="* Dirección de envio"
+              placeholder="Ingresa la dirección completa de envio"
               component={CustomInput}
             />
           </div>
@@ -55,7 +55,7 @@ const ShippingForm = () => {
                     className="label-input"
                     htmlFor={field.name}
                   >
-                    Shipping Option
+                    Opción de envio
                   </label>
                 )}
                 <div className="checkout-checkbox-field">
@@ -70,7 +70,7 @@ const ShippingForm = () => {
                   />
                   <label className="d-flex w-100" htmlFor={field.name}>
                     <h5 className="d-flex-grow-1 margin-0">
-                      &nbsp; International Shipping &nbsp;
+                      &nbsp; Envio nacional &nbsp;
                       <span className="text-subtle">7-14 days</span>
                     </h5>
                     <h4 className="margin-0">$50.00</h4>

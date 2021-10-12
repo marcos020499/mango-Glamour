@@ -108,11 +108,11 @@ const ViewProduct = () => {
               <div className="divider" />
               <br />
               <div>
-                <span className="text-subtle">Lens Width and Frame Size</span>
+                <span className="text-subtle">tamaño</span>
                 <br />
                 <br />
                 <Select
-                  placeholder="--Select Size--"
+                  placeholder="--Seleccionar talla--"
                   onChange={onSelectedSizeChange}
                   options={product.sizes.sort((a, b) => (a < b ? -1 : 1)).map((size) => ({ label: `${size} mm`, value: size }))}
                   styles={{ menu: (provided) => ({ ...provided, zIndex: 10 }) }}
@@ -133,25 +133,25 @@ const ViewProduct = () => {
               <h1>{displayMoney(product.price)}</h1>
               <div className="product-modal-action">
                 <button
-                  className={`button button-small ${isItemOnBasket(product.id) ? 'button-border button-border-gray' : ''}`}
+                  className={`button button-small ${isItemOnBasket(product.id) ? 'button-border ' : ''}`}
                   onClick={handleAddToBasket}
                   type="button"
                 >
-                  {isItemOnBasket(product.id) ? 'Remove From Basket' : 'Add To Basket'}
+                  {isItemOnBasket(product.id) ? 'Quitar de la canasta' : 'Agregar a la canasta'}
                 </button>
               </div>
             </div>
           </div>
           <div style={{ marginTop: '10rem' }}>
             <div className="display-header">
-              <h1>Recommended</h1>
+              <h1>Recomendado</h1>
               <Link to={RECOMMENDED_PRODUCTS}>See All</Link>
             </div>
             {errorFeatured && !isLoadingFeatured ? (
               <MessageDisplay
                 message={error}
                 action={fetchRecommendedProducts}
-                buttonLabel="Try Again"
+                buttonLabel="Intenta de nuevo"
               />
             ) : (
               <ProductShowcaseGrid products={recommendedProducts} skeletonCount={3} />

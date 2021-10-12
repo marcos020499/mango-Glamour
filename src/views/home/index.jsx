@@ -56,24 +56,24 @@ const Home = () => {
                   <strong>Tu mejor opción</strong>
                 </h1>
                     <Image src="https://res.cloudinary.com/marcos020499/image/upload/v1628783010/banner_z04kmu.jpg" />
-                    <ButtonDiv>
+                    <ButtonDivP>
               <Link to={SHOP} className="button">
               Comprar ahora &nbsp;
               <ArrowRightOutlined />
             </Link>
-            </ButtonDiv>
+            </ButtonDivP>
                 </div>
                 <div>
                 <h1 className="text-thin">
                 <strong>No lo piensas más</strong>
                 </h1>
                     <Image src="https://res.cloudinary.com/marcos020499/image/upload/v1628784608/banner2_s2i1eb.jpg" />
-            <ButtonDiv>
+            <ButtonDivP>
             <Link to={SHOP} className="button">
               Comprar ahora &nbsp;
               <ArrowRightOutlined />
             </Link>
-            </ButtonDiv>
+            </ButtonDivP>
               </div>
           </Carouselss>
           </Div>
@@ -167,16 +167,21 @@ const ButtonDiv = styled.div`
   justify-content: center;
   margin: auto;
 `;
+const ButtonDivP = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: auto;  
+`;
 const Image = styled.img`
   max-width: 360px;
   min-width: 360px;
   max-height: 310px;
   min-height: 310px;
   @media screen and (max-width: 768px) {
-    max-width: 100%;
-    min-width: 100%;
-    max-height: 300px;
-    min-height: 300px;
+    max-width: 80%;
+    min-width: 80%;
+    max-height: 240px;
+    min-height: 240px;
   }
 `;
 const Carousels = styled(Carousel)`

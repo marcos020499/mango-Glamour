@@ -5,7 +5,7 @@ const useDocumentTitle = (title) => {
     if (title) {
       document.title = title;
     } else {
-      document.title = 'Mango Glamour - eCommerce React App';
+      document.title = 'Mango Glamour - eCommerce';
     }
   }, [title]);
 };

@@ -11,10 +11,10 @@ const useBasket = () => {
   const addToBasket = (product) => {
     if (isItemOnBasket(product.id)) {
       dispatch(removeFromBasket(product.id));
-      displayActionMessage('Item removed from basket', 'info');
+      displayActionMessage('Producto eliminado de la cesta', 'info');
     } else {
       dispatch(dispatchAddToBasket(product));
-      displayActionMessage('Item added to basket', 'success');
+      displayActionMessage('Producto añadido a la cesta', 'success');
     }
   };
 

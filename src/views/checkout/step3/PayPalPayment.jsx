@@ -27,7 +27,7 @@ const PayPalPayment = () => {
             <div className="d-flex-grow-1 margin-left-s">
               <h4 className="margin-0">PayPal</h4>
               <span className="text-subtle d-block margin-top-s">
-                Pay easily, fast and secure with PayPal.
+                Paga facilmente, rápido y seguro con PayPal.
               </span>
             </div>
             <div className="payment-img payment-img-paypal" />

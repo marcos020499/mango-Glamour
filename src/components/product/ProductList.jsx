@@ -38,9 +38,9 @@ const ProductList = (props) => {
   } if (filteredProducts.length === 0 && requestStatus) {
     return (
       <MessageDisplay
-        message={requestStatus?.message || 'Something went wrong :('}
+        message={requestStatus?.message || 'Algo salio mal :('}
         action={fetchProducts}
-        buttonLabel="Try Again"
+        buttonLabel="Intentar de nuevo"
       />
     );
   }
@@ -56,7 +56,7 @@ const ProductList = (props) => {
             onClick={fetchProducts}
             type="button"
           >
-            {isFetching ? 'Fetching Items...' : 'Show More Items'}
+            {isFetching ? 'Obteniendo productos...' : 'Mostrar más `roductos'}
           </button>
         </div>
       )}

@@ -29,12 +29,14 @@ const Header = ({store,onClickLink, basketDisabledpathnames, ShoppingOutlined, p
         <li><NavLink className="option" to={ROUTE.RECOMMENDED_PRODUCTS} onClick={handleClick}>Recomendado</NavLink></li>
         <li><NavLink className="option" to={ROUTE.CONTACT} onClick={handleClick}>Contacto</NavLink></li>
         <SearchBar handleClick={handleClick} setClick={setClick} click={click}/>
+        {(pathname === ROUTE.SHOP || pathname === ROUTE.SEARCH) && (
         <FiltersToggle>
           <button className="button-muted button-small" type="button">
-            Filtros &nbsp;
+            Filters &nbsp;
             <FilterOutlined />
           </button>
         </FiltersToggle>
+      )}
         </ul>
       </div>
         <div className='mobile-elements'>

@@ -10,7 +10,6 @@
 .checkout-header {
   display: flex;
   justify-content: center;
-  position: sticky;
   top: $nav-height;
   background: $background-color;
   padding: 1rem 0;
@@ -35,9 +34,13 @@
   .basket-item {
     margin: .5rem 1rem;
 
-    @include mobile {
-      margin: 0;
-    }
+  }
+}
+@media (max-width: 768px) {
+  .checkout-items{
+    display: flex;
+    width: 100%;
+    margin: 0 0 0 -10%;
   }
 }
 
