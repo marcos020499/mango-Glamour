@@ -112,7 +112,8 @@ const ViewProduct = () => {
                 <br />
                 <br />
                 <Select
-                  placeholder="--Seleccionar talla--"
+                style={{fontSize: '10px'}}
+                  placeholder="--Seleccionar tamaño--"
                   onChange={onSelectedSizeChange}
                   options={product.sizes.sort((a, b) => (a < b ? -1 : 1)).map((size) => ({ label: `${size} mm`, value: size }))}
                   styles={{ menu: (provided) => ({ ...provided, zIndex: 10 }) }}

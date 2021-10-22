@@ -2,6 +2,7 @@ import { ArrowLeftOutlined, CheckOutlined, LoadingOutlined } from '@ant-design/i
 import { CustomInput, CustomMobileInput } from 'components/formik';
 import { ACCOUNT } from 'constants/routes';
 import { Field, useFormikContext } from 'formik';
+import { withRouter } from 'react-router';
 import PropType from 'prop-types';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
@@ -76,4 +77,4 @@ EditForm.propTypes = {
   authProvider: PropType.string.isRequired
 };
 
-export default EditForm;
+export default withRouter(EditForm);

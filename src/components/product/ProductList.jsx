@@ -33,7 +33,7 @@ const ProductList = (props) => {
 
   if (filteredProducts.length === 0 && !isLoading) {
     return (
-      <MessageDisplay message={requestStatus?.message || 'No products found.'} />
+      <MessageDisplay message={requestStatus?.message || 'Ningun producto encontrado.'} />
     );
   } if (filteredProducts.length === 0 && requestStatus) {
     return (

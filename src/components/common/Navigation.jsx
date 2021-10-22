@@ -2,7 +2,7 @@
 import { FilterOutlined, ShoppingOutlined } from '@ant-design/icons';
 import * as ROUTE from 'constants/routes';
 import logo from 'images/logo-full.png';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, handleClick, setClick, click } from 'react';
 import { useSelector } from 'react-redux';
 import {
   Link, NavLink, useLocation
@@ -24,7 +24,8 @@ const Navigation = () => {
     isAuthenticating: state.app.isAuthenticating,
     isLoading: state.app.loading
   }));
-
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
   const onClickLink = (e) => {
     if (store.isAuthenticating) e.preventDefault();
   };
@@ -77,7 +78,7 @@ const Navigation = () => {
           </button>
         </FiltersToggle>
       )}
-      <SearchBar />
+      <SearchBar handleClick={handleClick} setClick={setClick} click={click}/>
       <ul className="navigation-menu">
         <li className="navigation-menu-item">
           <BasketToggle>

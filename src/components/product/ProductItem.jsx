@@ -64,6 +64,7 @@ const ProductItem = ({ product, isItemOnBasket, addToBasket }) => {
             className={`product-card-button button-small button button-block ${itemOnBasket ? 'button-border button-border-gray' : ''}`}
             onClick={handleAddToBasket}
             type="button"
+            style={{paddingBottom: itemOnBasket ?'30px':'22px'}}
           >
             {itemOnBasket ? 'Eliminar de la canasta' : 'Añadir a la canasta'}
           </button>
