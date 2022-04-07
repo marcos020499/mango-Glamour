@@ -2,7 +2,7 @@
 Simple ecommerce react js app with firebase [typescript].
 ![Firebase Deploy](https://github.com/jgudo/ecommerce-react/workflows/Firebase%20Deploy/badge.svg)
 
-### [Live demo](https://Mango Glamour-ecommerce.web.app/)
+### [Live demo](https://MangoGlamour-ecommerce.web.app/)
 
 ## Run Locally
 ### 1. Install Dependencies
