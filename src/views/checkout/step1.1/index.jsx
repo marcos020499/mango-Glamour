@@ -22,7 +22,7 @@ const OrderSummary = ({ basket, subtotal }) => {
   const onClickPrevious = () => history.push('/');
   const onClickNext = () => history.push(CHECKOUT_STEP_2);
   const priceForStripe = subtotal * 100;
-  const publishableKey = "pk_live_51JNOllHIeXAWLdU8gva4bRhxOcGKmbtJlk9MrvtbSu1MIkOnNhKpymESaijN7925BVd5Kq5FffkvMY6j8lkew4TT00K9OunEpE";
+  const publishableKey = "pk_test_51JNOllHIeXAWLdU8EZdfkqQZDYWox2aFOYkQalggWSUwCHjFuZhr4h2vzkXvJwoWzJwaJxX4ZVYVdD8FQLE0lfvM00d18P9uXb";
 
   // Create a new checkout session in the subollection inside this users document
   // Wait for the CheckoutSession to get attached by the extension
